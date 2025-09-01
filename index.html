@@ -146,70 +146,6 @@
             font-size: 1rem;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .stat-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent-color);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .stat-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-
-        .stat-icon.primary { background: #ebf8ff; color: var(--accent-color); }
-        .stat-icon.success { background: #f0fff4; color: var(--success-color); }
-        .stat-icon.warning { background: #fffbeb; color: var(--warning-color); }
-        .stat-icon.purple { background: #faf5ff; color: #805ad5; }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .stat-change {
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .stat-change.positive { color: var(--success-color); }
-        .stat-change.negative { color: var(--danger-color); }
-
         .modules-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -374,11 +310,6 @@
                 font-size: 1.5rem;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
             .modules-grid {
                 grid-template-columns: 1fr;
             }
@@ -529,62 +460,7 @@
         <!-- Conteúdo Principal -->
         <main class="main-content">
             <div class="page-title">Dashboard Principal</div>
-            <div class="page-subtitle">Visão geral dos sistemas e métricas operacionais</div>
-
-            <!-- Estatísticas -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon success">
-                            <i class="fas fa-server"></i>
-                        </div>
-                    </div>
-                    <div class="stat-value">99.9%</div>
-                    <div class="stat-label">Uptime do Sistema</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> +0.2% vs mês anterior
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon primary">
-                            <i class="fas fa-users"></i>
-                        </div>
-                    </div>
-                    <div class="stat-value">1,247</div>
-                    <div class="stat-label">Usuários Ativos</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> +15% esta semana
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon warning">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                    </div>
-                    <div class="stat-value">2.8s</div>
-                    <div class="stat-label">Tempo de Resposta</div>
-                    <div class="stat-change negative">
-                        <i class="fas fa-arrow-down"></i> +0.3s vs ontem
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon purple">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                    <div class="stat-value">45.2k</div>
-                    <div class="stat-label">Transações Hoje</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> +8.3% vs ontem
-                    </div>
-                </div>
-            </div>
+            <div class="page-subtitle">Acesso rápido aos módulos do sistema</div>
 
             <!-- Módulos do Sistema -->
             <div class="modules-section">
@@ -735,27 +611,6 @@
             // Simular mudanças nas estatísticas
             simulateStats();
         });
-
-        // Simular atualizações nas estatísticas
-        function simulateStats() {
-            const stats = document.querySelectorAll('.stat-value');
-            
-            setInterval(() => {
-                // Atualizar usuários ativos (simular variação)
-                const usersElement = stats[1];
-                const currentUsers = parseInt(usersElement.textContent.replace(',', ''));
-                const variation = Math.floor(Math.random() * 20) - 10;
-                const newUsers = Math.max(1000, currentUsers + variation);
-                usersElement.textContent = newUsers.toLocaleString('pt-BR');
-                
-                // Atualizar transações (incrementar)
-                const transactionsElement = stats[3];
-                const currentTransactions = parseFloat(transactionsElement.textContent.replace('k', ''));
-                const newTransactions = (currentTransactions + Math.random() * 0.1).toFixed(1);
-                transactionsElement.textContent = newTransactions + 'k';
-                
-            }, 30000); // Atualizar a cada 30 segundos
-        }
 
         // Função para abrir Analytics Studio
         function openAnalytics() {
