@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Acesso - Jirau Energia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            min-height: 80px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-restaurante {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .btn-patrimonial {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        }
+
+        .btn-recepcao {
+            background: linear-gradient(135deg, #45b7d1, #96c93d);
+        }
+
+        .btn-placeholder {
+            background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .btn-placeholder:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 18px 25px;
+                min-height: 70px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Sistema de Acesso</h1>
+            <p class="subtitle">Selecione o módulo desejado para continuar</p>
+        </div>
+        
+        <div class="buttons-grid">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" 
+               class="btn btn-restaurante" target="_blank">
+                <span class="icon">🍽️</span>
+                RESTAURANTE
+            </a>
+            
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" 
+               class="btn btn-patrimonial" target="_blank">
+                <span class="icon">🏢</span>
+                PATRIMONIAL
+            </a>
+            
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" 
+               class="btn btn-recepcao" target="_blank">
+                <span class="icon">🏨</span>
+                RECEPÇÃO
+            </a>
+            
+            <div class="btn btn-placeholder">
+                <span class="icon">❓</span>
+                MÓDULO 4
+            </div>
+            
+            <div class="btn btn-placeholder">
+                <span class="icon">❓</span>
+                MÓDULO 5
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Jirau Energia - Sistema Integrado de Gestão</p>
+        </div>
+    </div>
+</body>
+</html>
