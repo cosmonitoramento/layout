@@ -414,6 +414,97 @@
         .notification.show {
             transform: translateX(0);
         }
+
+        /* Modal para iframe */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 95%;
+            height: 90%;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px 15px 0 0;
+            background: linear-gradient(135deg, var(--secondary-color), var(--info-color));
+            color: white;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: calc(100% - 80px);
+            border: none;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .embed-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .embed-btn:hover {
+            background: white;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -421,6 +512,19 @@
     
     <div class="notification" id="notification">
         <i class="fas fa-check-circle"></i> Sistema carregado com sucesso!
+    </div>
+
+    <!-- Modal para incorporar páginas -->
+    <div class="modal" id="pageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-chart-line"></i> Sistema Performance - Jirau Energia</h3>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <iframe class="modal-iframe" id="modalIframe" src=""></iframe>
+        </div>
     </div>
 
     <div class="container">
@@ -495,12 +599,16 @@
             </div>
             
             <div class="btn-wrapper">
-                <div class="btn btn-performance">
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" 
+                   class="btn btn-performance" target="_blank">
+                    <button class="embed-btn" onclick="openModal(event, 'https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35')">
+                        <i class="fas fa-expand"></i> Ver Aqui
+                    </button>
                     <div class="loading-indicator"></div>
                     <div class="btn-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="btn-title">Performance</div>
                     <div class="btn-description">Métricas, análises e dashboards avançados</div>
-                </div>
+                </a>
             </div>
             
             <div class="btn-wrapper">
@@ -603,6 +711,42 @@
             updateTime();
             setInterval(updateTime, 60000);
             showNotification();
+        });
+
+        // Funções para controlar o modal
+        function openModal(event, url) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const modal = document.getElementById('pageModal');
+            const iframe = document.getElementById('modalIframe');
+            
+            iframe.src = url;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('pageModal');
+            const iframe = document.getElementById('modalIframe');
+            
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Fechar modal clicando fora
+        document.getElementById('pageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
         // CSS para animação ripple
