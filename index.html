@@ -241,7 +241,7 @@
 
         .page-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .page-title {
@@ -263,112 +263,6 @@
             animation: fadeInUp 1s ease 0.2s both;
         }
 
-        /* Dashboard de Estatísticas */
-        .stats-section {
-            margin-bottom: 3rem;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-blue);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-gradient);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: white;
-            position: relative;
-        }
-
-        .stat-icon.users { background: var(--success-gradient); }
-        .stat-icon.orders { background: var(--warning-gradient); }
-        .stat-icon.revenue { background: var(--danger-gradient); }
-        .stat-icon.performance { background: var(--secondary-gradient); }
-
-        .stat-trend {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 12px;
-        }
-
-        .stat-trend.up {
-            background: rgba(104, 211, 145, 0.2);
-            color: var(--accent-green);
-        }
-
-        .stat-trend.down {
-            background: rgba(252, 129, 129, 0.2);
-            color: var(--accent-red);
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .stat-description {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
         /* Seção de Módulos */
         .modules-section {
             background: var(--bg-glass);
@@ -378,7 +272,7 @@
             border-radius: 24px;
             padding: 3rem;
             box-shadow: var(--shadow-glass);
-            animation: fadeInUp 1s ease 0.6s both;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .section-header {
@@ -784,11 +678,6 @@
                 font-size: 2rem;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
             .modules-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -818,10 +707,6 @@
 
             .main-content {
                 padding: 1rem;
-            }
-
-            .stat-card {
-                padding: 1.5rem;
             }
 
             .modules-section {
@@ -935,71 +820,6 @@
             <div class="page-header">
                 <div class="page-title">Dashboard Executivo</div>
                 <div class="page-subtitle">Centro de comando integrado para gestão empresarial</div>
-            </div>
-
-            <!-- Dashboard de Estatísticas -->
-            <div class="stats-section">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon users">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-trend up">
-                                <i class="fas fa-arrow-up"></i>
-                                +12%
-                            </div>
-                        </div>
-                        <div class="stat-value">2,847</div>
-                        <div class="stat-label">Usuários Ativos</div>
-                        <div class="stat-description">Crescimento mensal consistente</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon orders">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div class="stat-trend up">
-                                <i class="fas fa-arrow-up"></i>
-                                +8.5%
-                            </div>
-                        </div>
-                        <div class="stat-value">15,642</div>
-                        <div class="stat-label">Pedidos do Mês</div>
-                        <div class="stat-description">Performance excepcional</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon revenue">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-trend up">
-                                <i class="fas fa-arrow-up"></i>
-                                +24%
-                            </div>
-                        </div>
-                        <div class="stat-value">R$ 2.4M</div>
-                        <div class="stat-label">Receita Mensal</div>
-                        <div class="stat-description">Recorde histórico</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon performance">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                            <div class="stat-trend up">
-                                <i class="fas fa-arrow-up"></i>
-                                +3.2%
-                            </div>
-                        </div>
-                        <div class="stat-value">94.7%</div>
-                        <div class="stat-label">Eficiência</div>
-                        <div class="stat-description">Otimização contínua</div>
-                    </div>
-                </div>
             </div>
 
             <!-- Módulos do Sistema -->
@@ -1130,7 +950,7 @@
                             </a>
                             <a href="tel:+5555996091260" class="footer-link">
                                 <i class="fas fa-phone"></i>
-                                COS: (55) 99609-1260
+                                COS: (69) 99609-1260
                             </a>
                             <a href="tel:+5569999421260" class="footer-link">
                                 <i class="fas fa-phone"></i>
@@ -1247,11 +1067,10 @@
         // Animação de carregamento sofisticada
         document.addEventListener('DOMContentLoaded', function() {
             const moduleCards = document.querySelectorAll('.module-card:not(.unavailable)');
-            const statCards = document.querySelectorAll('.stat-card');
             
             // Animação para cards de módulos
             moduleCards.forEach((card, index) => {
-                card.style.animationDelay = `${0.8 + (index * 0.1)}s`;
+                card.style.animationDelay = `${0.4 + (index * 0.1)}s`;
                 card.addEventListener('click', function(e) {
                     if (!this.href.includes('javascript:void(0)')) {
                         this.classList.add('loading');
@@ -1261,81 +1080,11 @@
                     }
                 });
             });
-
-            // Animação para cards de estatísticas
-            statCards.forEach((card, index) => {
-                card.style.animationDelay = `${0.4 + (index * 0.1)}s`;
-                
-                // Efeito de contador animado
-                const valueElement = card.querySelector('.stat-value');
-                const finalValue = valueElement.textContent;
-                
-                if (finalValue.includes('%')) {
-                    animateCounter(valueElement, parseFloat(finalValue), '%');
-                } else if (finalValue.includes('R$')) {
-                    animateCounter(valueElement, parseFloat(finalValue.replace('R$ ', '').replace('M', '')), 'R$ ', 'M');
-                } else if (finalValue.includes(',')) {
-                    animateCounter(valueElement, parseInt(finalValue.replace(',', '')), '', '', true);
-                } else {
-                    animateCounter(valueElement, parseInt(finalValue), 'ms');
-                }
-            });
             
             // Inicializar horário
             updateTime();
             setInterval(updateTime, 1000);
-            
-            // Simular mudanças de estatísticas em tempo real
-            simulateRealTimeStats();
         });
-
-        // Função para animar contadores
-        function animateCounter(element, target, prefix = '', suffix = '', useComma = false) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                let displayValue = current.toFixed(target % 1 === 0 ? 0 : 1);
-                if (useComma && current >= 1000) {
-                    displayValue = Math.floor(current).toLocaleString('pt-BR');
-                }
-                
-                element.textContent = prefix + displayValue + suffix;
-            }, 20);
-        }
-
-        // Simulação de estatísticas em tempo real
-        function simulateRealTimeStats() {
-            const stats = [
-                { element: document.querySelector('.stat-card:nth-child(1) .stat-value'), base: 2847, variance: 50 },
-                { element: document.querySelector('.stat-card:nth-child(2) .stat-value'), base: 15642, variance: 200 },
-                { element: document.querySelector('.stat-card:nth-child(3) .stat-value'), base: 2.4, variance: 0.1, prefix: 'R$ ', suffix: 'M' },
-                { element: document.querySelector('.stat-card:nth-child(4) .stat-value'), base: 94.7, variance: 2, suffix: '%' }
-            ];
-
-            setInterval(() => {
-                stats.forEach(stat => {
-                    if (stat.element) {
-                        const variance = (Math.random() - 0.5) * stat.variance;
-                        const newValue = stat.base + variance;
-                        const displayValue = newValue.toFixed(stat.suffix === '%' || stat.suffix === 'M' ? 1 : 0);
-                        
-                        if (stat.suffix === 'M') {
-                            stat.element.textContent = (stat.prefix || '') + displayValue + stat.suffix;
-                        } else if (newValue >= 1000 && !stat.suffix) {
-                            stat.element.textContent = Math.floor(newValue).toLocaleString('pt-BR');
-                        } else {
-                            stat.element.textContent = (stat.prefix || '') + displayValue + (stat.suffix || '');
-                        }
-                    }
-                });
-            }, 5000);
-        }
 
         // Função para abrir Analytics Studio
         function openAnalytics() {
@@ -1382,7 +1131,7 @@
         });
 
         // Efeito de hover 3D nos cards
-        document.querySelectorAll('.module-card, .stat-card').forEach(card => {
+        document.querySelectorAll('.module-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -1403,4 +1152,4 @@
         });
     </script>
 </body>
-</html>  
+</html>
