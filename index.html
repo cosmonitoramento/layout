@@ -352,6 +352,24 @@
             left: 100%;
         }
 
+        .module-card.unavailable {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .module-card.unavailable::after {
+            content: 'Em breve';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--warning-gradient);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
         .module-header {
             display: flex;
             align-items: center;
@@ -388,6 +406,22 @@
         .module-icon.acessos { 
             background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
         }
+
+        .module-icon.portaria { 
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+        }
+
+        .module-icon.cftv { 
+            background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+        }
+
+        .module-icon.veiculos { 
+            background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);
+        }
+
+        .module-icon.credenciais { 
+            background: linear-gradient(135deg, #667db6 0%, #0082c8, #0078ff 100%);
+        }
         
         .module-icon.analytics { 
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
@@ -417,6 +451,11 @@
             background: var(--accent-green);
             box-shadow: 0 0 0 2px rgba(104, 211, 145, 0.3);
             animation: pulse 2s infinite;
+        }
+
+        .module-status.unavailable {
+            background: var(--accent-orange);
+            box-shadow: 0 0 0 2px rgba(251, 182, 206, 0.3);
         }
 
         .module-features {
@@ -501,93 +540,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Modal Analytics Melhorado */
-        .analytics-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        .analytics-modal.active {
-            display: flex;
-        }
-
-        .analytics-modal-content {
-            background: var(--bg-glass);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            width: 95%;
-            height: 90%;
-            position: relative;
-            box-shadow: var(--shadow-hover);
-            overflow: hidden;
-            animation: modalSlideIn 0.4s ease;
-        }
-
-        .analytics-modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid var(--border-glass);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        .analytics-modal-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .analytics-close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .analytics-close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        .analytics-iframe-container {
-            width: 100%;
-            height: calc(100% - 100px);
-            position: relative;
-        }
-
-        .analytics-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         /* Animações */
         @keyframes fadeInUp {
             from {
@@ -597,22 +549,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
             }
         }
 
@@ -691,12 +627,6 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
                 text-align: center;
-            }
-
-            .analytics-modal-content {
-                width: 98%;
-                height: 95%;
-                border-radius: 16px;
             }
         }
 
@@ -828,7 +758,7 @@
                     <h2 class="section-title">Módulos Integrados</h2>
                     <div class="section-badge">
                         <i class="fas fa-cube"></i>
-                        <span>5 módulos ativos</span>
+                        <span>8 módulos disponíveis</span>
                     </div>
                 </div>
 
@@ -909,8 +839,80 @@
                         </div>
                     </a>
 
-                    <a href="javascript:void(0)" onclick="openAnalytics()" class="module-card">
-                        <div class="module-status"></div>
+                    <div class="module-card unavailable">
+                        <div class="module-status unavailable"></div>
+                        <div class="module-header">
+                            <div class="module-icon portaria">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="module-info">
+                                <h3>Controle de Portaria</h3>
+                                <p>Sistema integrado para controle de acesso principal, registro de visitantes e autorização de entrada</p>
+                            </div>
+                        </div>
+                        <div class="module-features">
+                            <span class="feature-tag">Segurança</span>
+                            <span class="feature-tag">Autorização</span>
+                            <span class="feature-tag">Registro</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card unavailable">
+                        <div class="module-status unavailable"></div>
+                        <div class="module-header">
+                            <div class="module-icon visitantes">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="module-info">
+                                <h3>Gestão de Visitantes</h3>
+                                <p>Sistema específico para cadastro detalhado de visitantes, controle de acompanhantes e áreas autorizadas</p>
+                            </div>
+                        </div>
+                        <div class="module-features">
+                            <span class="feature-tag">Cadastro</span>
+                            <span class="feature-tag">Acompanhamento</span>
+                            <span class="feature-tag">Autorização</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card unavailable">
+                        <div class="module-status unavailable"></div>
+                        <div class="module-header">
+                            <div class="module-icon veiculos">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="module-info">
+                                <h3>Controle de Veículos</h3>
+                                <p>Gestão de entrada e saída de veículos, controle de estacionamento e registro de placas</p>
+                            </div>
+                        </div>
+                        <div class="module-features">
+                            <span class="feature-tag">Veículos</span>
+                            <span class="feature-tag">Pátio</span>
+                            <span class="feature-tag">Rastreamento</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card unavailable">
+                        <div class="module-status unavailable"></div>
+                        <div class="module-header">
+                            <div class="module-icon credenciais">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="module-info">
+                                <h3>Gestão de Credenciais</h3>
+                                <p>Controle completo de crachás, cartões de acesso e permissões de usuários do sistema</p>
+                            </div>
+                        </div>
+                        <div class="module-features">
+                            <span class="feature-tag">Crachás</span>
+                            <span class="feature-tag">Permissões</span>
+                            <span class="feature-tag">Biometria</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card unavailable">
+                        <div class="module-status unavailable"></div>
                         <div class="module-header">
                             <div class="module-icon analytics">
                                 <i class="fas fa-chart-bar"></i>
@@ -925,7 +927,7 @@
                             <span class="feature-tag">KPIs</span>
                             <span class="feature-tag">Insights</span>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </main>
@@ -1025,24 +1027,6 @@
         </footer>
     </div>
 
-    <!-- Modal Analytics Studio -->
-    <div class="analytics-modal" id="analyticsModal">
-        <div class="analytics-modal-content">
-            <div class="analytics-modal-header">
-                <h3>
-                    <i class="fas fa-chart-bar"></i> 
-                    Analytics Studio - Jirau Energia
-                </h3>
-                <button class="analytics-close-btn" onclick="closeAnalyticsModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="analytics-iframe-container">
-                <iframe class="analytics-iframe" id="analyticsIframe" src=""></iframe>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Atualizar horário em tempo real
         function updateTime() {
@@ -1072,52 +1056,25 @@
             moduleCards.forEach((card, index) => {
                 card.style.animationDelay = `${0.4 + (index * 0.1)}s`;
                 card.addEventListener('click', function(e) {
-                    if (!this.href.includes('javascript:void(0)')) {
-                        this.classList.add('loading');
-                        setTimeout(() => {
-                            this.classList.remove('loading');
-                        }, 2000);
-                    }
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 2000);
                 });
             });
             
             // Inicializar horário
             updateTime();
             setInterval(updateTime, 1000);
-        });
 
-        // Função para abrir Analytics Studio
-        function openAnalytics() {
-            const modal = document.getElementById('analyticsModal');
-            const iframe = document.getElementById('analyticsIframe');
-            
-            const analyticsUrl = 'https://platform.senior.com.br/tecnologia/platform/cms/#/analytics-studio/viewer;id=analytic%3A%2F%2Fjirauenergia.com.br%2F604f5845-9f51-2166-d639-9613c8b74474';
-            
-            iframe.src = analyticsUrl;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeAnalyticsModal() {
-            const modal = document.getElementById('analyticsModal');
-            const iframe = document.getElementById('analyticsIframe');
-            
-            modal.classList.remove('active');
-            iframe.src = '';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Controles do modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeAnalyticsModal();
-            }
-        });
-
-        document.getElementById('analyticsModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAnalyticsModal();
-            }
+            // Prevenir clique em módulos indisponíveis
+            const unavailableCards = document.querySelectorAll('.module-card.unavailable');
+            unavailableCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+            });
         });
 
         // Efeito de paralaxe sutil
