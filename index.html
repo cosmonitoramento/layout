@@ -427,8 +427,8 @@
             background: linear-gradient(135deg, #667db6 0%, #0082c8, #0078ff 100%);
         }
         
-        .module-icon.analytics { 
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        .module-icon.sso { 
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b, #eab308 100%);
         }
 
         .module-info h3 {
@@ -460,6 +460,11 @@
         .module-status.unavailable {
             background: var(--accent-orange);
             box-shadow: 0 0 0 2px rgba(251, 182, 206, 0.3);
+        }
+
+        .module-status.warning {
+            background: #fbbf24;
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
         }
 
         .module-features {
@@ -762,7 +767,7 @@
                     <h2 class="section-title">Módulos Integrados</h2>
                     <div class="section-badge">
                         <i class="fas fa-cube"></i>
-                        <span>5 módulos disponíveis</span>
+                        <span>6 módulos disponíveis</span>
                     </div>
                 </div>
 
@@ -785,7 +790,8 @@
                             <span class="feature-tag">Gráficos</span>
                         </div>
                     </a>
-                       <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" 
+
+                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" 
                        class="module-card" target="_blank">
                         <div class="module-status"></div>
                         <div class="module-header">
@@ -803,6 +809,7 @@
                             <span class="feature-tag">Fluxo</span>
                         </div>
                     </a>
+
                     <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" 
                        class="module-card" target="_blank">
                         <div class="module-status"></div>
@@ -840,8 +847,6 @@
                             <span class="feature-tag">Acesso</span>
                         </div>
                     </a>
-
-                  
 
                     <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" 
                        class="module-card" target="_blank">
@@ -916,23 +921,24 @@
                         </div>
                     </div>
 
-                    <div class="module-card unavailable">
-                        <div class="module-status unavailable"></div>
+                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" 
+                       class="module-card" target="_blank">
+                        <div class="module-status warning"></div>
                         <div class="module-header">
-                            <div class="module-icon analytics">
-                                <i class="fas fa-chart-bar"></i>
+                            <div class="module-icon sso">
+                                <i class="fas fa-hard-hat"></i>
                             </div>
                             <div class="module-info">
-                                <h3>Analytics Studio</h3>
-                                <p>Dashboard interativo com análises avançadas, KPIs e insights inteligentes</p>
+                                <h3>Saúde e Segurança Ocupacional</h3>
+                                <p>Controle de acessos, pessoas presentes na usina de Jirau Energia, lista de colaboradores por dia e gestão integrada de usuários</p>
                             </div>
                         </div>
                         <div class="module-features">
-                            <span class="feature-tag">BI</span>
-                            <span class="feature-tag">KPIs</span>
-                            <span class="feature-tag">Insights</span>
+                            <span class="feature-tag">Controle de Acesso</span>
+                            <span class="feature-tag">Presença</span>
+                            <span class="feature-tag">Colaboradores</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </main>
