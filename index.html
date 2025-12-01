@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sistema Integrado Jirau Energia - Dashboard Executivo</title>
+    <title>Sistema Integrado Jirau Energia - Dashboard Natalino 🎅</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,49 +17,61 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --christmas-red: #c41e3a;
+            --christmas-green: #0f7f4f;
+            --christmas-gold: #ffd700;
+            --christmas-white: #ffffff;
+            --christmas-dark-red: #8b1a2e;
+            --christmas-light-red: #ff6b6b;
             
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --primary-gradient: linear-gradient(135deg, #c41e3a 0%, #8b1a2e 100%);
+            --secondary-gradient: linear-gradient(135deg, #0f7f4f 0%, #067d54 100%);
+            --success-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            --warning-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
             
-            --bg-primary: #0f0f23;
-            --bg-secondary: #16213e;
-            --bg-tertiary: #1a1b3a;
-            --bg-glass: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             
             --text-primary: #ffffff;
-            --text-secondary: #b8c5d6;
-            --text-muted: #8892b0;
-            --text-accent: #64ffda;
-            
-            --border-glass: rgba(255, 255, 255, 0.2);
-            --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
-            
-            --accent-blue: #00d4ff;
-            --accent-purple: #b794f6;
-            --accent-green: #68d391;
-            --accent-orange: #fbb6ce;
-            --accent-red: #fc8181;
+            --text-secondary: #f0f0f0;
+            --text-muted: #d0d0d0;
+            --text-accent: #ffd700;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            background-image: 
-                radial-gradient(circle at 25% 25%, #667eea 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, #764ba2 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, #f093fb 0%, transparent 50%);
-            background-attachment: fixed;
+            background: #0a1428;
             min-height: 100vh;
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Vídeo de fundo */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.5;
+            filter: brightness(0.9);
+        }
+
+        /* Overlay para melhorar legibilidade */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(10, 20, 40, 0.4) 0%, rgba(10, 20, 40, 0.6) 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .main-container {
@@ -67,20 +79,54 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            z-index: 2;
         }
 
-        /* Header Sofisticado */
+        /* Neve caindo */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+            opacity: 0.9;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 0.8;
+            }
+            100% {
+                top: 100%;
+                opacity: 0.2;
+            }
+        }
+
+        /* Header Natalino */
         .header-bar {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.6) 0%, rgba(139, 26, 46, 0.6) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid var(--christmas-gold);
             border-top: none;
             padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow-glass);
+            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
         }
 
         .header-content {
@@ -108,40 +154,41 @@
             color: white;
             font-weight: 800;
             font-size: 1.5rem;
-            box-shadow: var(--shadow-glass);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
+            border: 2px solid var(--christmas-gold);
+            animation: glow 2s ease-in-out infinite;
         }
 
-        .logo::before {
-            content: '';
-            position: absolute;
-            inset: 1px;
-            background: var(--primary-gradient);
-            border-radius: 15px;
-            opacity: 0.8;
-        }
-
-        .logo i {
-            position: relative;
-            z-index: 1;
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 1);
+            }
         }
 
         .company-info h1 {
             font-size: 1.75rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
             margin-bottom: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .company-info h1::after {
+            content: ' 🎄';
+            animation: pulse 2s infinite;
         }
 
         .company-info p {
             font-size: 0.95rem;
             color: var(--text-secondary);
             font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .header-actions {
@@ -161,16 +208,17 @@
             flex-direction: column;
             align-items: center;
             padding: 8px 16px;
-            background: var(--bg-glass);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 12px;
-            border: 1px solid var(--border-glass);
+            border: 1px solid var(--christmas-gold);
             backdrop-filter: blur(10px);
         }
 
         .metric-value {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--accent-green);
+            color: var(--christmas-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .metric-label {
@@ -184,39 +232,23 @@
             align-items: center;
             gap: 8px;
             padding: 10px 18px;
-            background: var(--success-gradient);
+            background: var(--secondary-gradient);
             border-radius: 25px;
             font-size: 0.9rem;
             color: white;
             font-weight: 600;
-            box-shadow: var(--shadow-glass);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .status-indicator::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            box-shadow: 0 0 20px rgba(15, 127, 79, 0.5);
+            border: 2px solid var(--christmas-gold);
+            animation: glow 2s ease-in-out infinite;
         }
 
         .status-dot {
             width: 10px;
             height: 10px;
-            background: white;
+            background: var(--christmas-gold);
             border-radius: 50%;
             animation: pulse 2s infinite;
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 0 10px var(--christmas-gold);
         }
 
         @keyframes pulse {
@@ -228,8 +260,8 @@
             font-family: 'Courier New', monospace;
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-accent);
-            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+            color: var(--christmas-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         /* Conteúdo Principal */
@@ -249,12 +281,18 @@
         .page-title {
             font-size: 3.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--christmas-gold);
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .page-title::before {
+            content: '🎅 ';
+        }
+
+        .page-title::after {
+            content: ' 🎁';
         }
 
         .page-subtitle {
@@ -263,17 +301,18 @@
             font-weight: 500;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Seção de Módulos */
         .modules-section {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.25) 0%, rgba(15, 127, 79, 0.25) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid var(--christmas-gold);
             border-radius: 24px;
             padding: 3rem;
-            box-shadow: var(--shadow-glass);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.2);
             animation: fadeInUp 1s ease 0.4s both;
         }
 
@@ -283,16 +322,14 @@
             align-items: center;
             margin-bottom: 3rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-glass);
+            border-bottom: 2px solid var(--christmas-gold);
         }
 
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--christmas-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .section-badge {
@@ -305,7 +342,8 @@
             color: white;
             font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: var(--shadow-glass);
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+            border: 2px solid var(--christmas-gold);
         }
 
         .modules-grid {
@@ -315,10 +353,10 @@
         }
 
         .module-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-glass);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--christmas-gold);
             border-radius: 20px;
             padding: 2rem;
             text-decoration: none;
@@ -327,12 +365,13 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .module-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.3);
+            border-color: var(--christmas-light-red);
         }
 
         .module-card:hover .module-icon {
@@ -346,7 +385,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -360,7 +399,7 @@
         }
 
         .module-card.unavailable::after {
-            content: 'Em breve';
+            content: '🎁 Em breve';
             position: absolute;
             top: 1rem;
             right: 1rem;
@@ -370,6 +409,7 @@
             border-radius: 12px;
             font-size: 0.75rem;
             font-weight: 600;
+            border: 1px solid var(--christmas-gold);
         }
 
         .module-header {
@@ -390,48 +430,49 @@
             color: white;
             transition: all 0.3s ease;
             position: relative;
-            box-shadow: var(--shadow-glass);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
             flex-shrink: 0;
+            border: 2px solid var(--christmas-gold);
         }
 
         .module-icon.restaurante { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1a2e 100%);
         }
         
         .module-icon.patrimonial { 
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #0f7f4f 0%, #067d54 100%);
         }
         
         .module-icon.recepcao { 
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
         }
         
         .module-icon.acessos { 
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
         }
 
         .module-icon.portaria { 
-            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            background: linear-gradient(135deg, #c41e3a 0%, #0f7f4f 100%);
         }
 
         .module-icon.visitantes { 
-            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
         }
 
         .module-icon.cftv { 
-            background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+            background: linear-gradient(135deg, #0f7f4f 0%, #ffd700 100%);
         }
 
         .module-icon.veiculos { 
-            background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
         }
 
         .module-icon.credenciais { 
-            background: linear-gradient(135deg, #667db6 0%, #0082c8, #0078ff 100%);
+            background: linear-gradient(135deg, #c41e3a 0%, #ffd700 100%);
         }
         
         .module-icon.sso { 
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b, #eab308 100%);
+            background: linear-gradient(135deg, #0f7f4f 0%, #c41e3a 100%);
         }
 
         .module-info h3 {
@@ -439,6 +480,7 @@
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .module-info p {
@@ -446,6 +488,7 @@
             color: var(--text-secondary);
             line-height: 1.5;
             font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .module-status {
@@ -455,19 +498,19 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--accent-green);
-            box-shadow: 0 0 0 2px rgba(104, 211, 145, 0.3);
+            background: var(--christmas-gold);
+            box-shadow: 0 0 20px var(--christmas-gold);
             animation: pulse 2s infinite;
         }
 
         .module-status.unavailable {
-            background: var(--accent-orange);
-            box-shadow: 0 0 0 2px rgba(251, 182, 206, 0.3);
+            background: var(--christmas-light-red);
+            box-shadow: 0 0 20px var(--christmas-light-red);
         }
 
         .module-status.warning {
             background: #fbbf24;
-            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 0 20px #fbbf24;
         }
 
         .module-features {
@@ -480,22 +523,23 @@
         .feature-tag {
             font-size: 0.75rem;
             padding: 4px 8px;
-            background: rgba(100, 255, 218, 0.1);
-            color: var(--accent-blue);
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--christmas-gold);
             border-radius: 12px;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid var(--christmas-gold);
             font-weight: 500;
         }
 
-        /* Footer Profissional */
+        /* Footer Natalino */
         .footer {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.6) 0%, rgba(15, 127, 79, 0.6) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid var(--christmas-gold);
             border-bottom: none;
             padding: 3rem 2rem 2rem;
             margin-top: 4rem;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
         }
 
         .footer-content {
@@ -513,8 +557,9 @@
         .footer-section h4 {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--christmas-gold);
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .footer-links {
@@ -531,25 +576,28 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .footer-link:hover {
-            color: var(--accent-blue);
+            color: var(--christmas-gold);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid var(--border-glass);
+            border-top: 2px solid var(--christmas-gold);
             color: var(--text-muted);
             font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .footer-logo {
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--text-primary);
+            color: var(--christmas-gold);
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Animações */
@@ -564,85 +612,7 @@
             }
         }
 
-        /* Loading State Melhorado */
-        .loading {
-            position: relative;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: loadingShimmer 1.5s infinite;
-        }
-
-        @keyframes loadingShimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        /* Elementos decorativos */
-        .bg-decoration {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .decoration-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .decoration-circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .decoration-circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            bottom: 20%;
-            left: 15%;
-            animation-delay: 2s;
-        }
-
-        .decoration-circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 30%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* ============================================ */
-        /* RESPONSIVIDADE OTIMIZADA PARA MOBILE/ANDROID */
-        /* ============================================ */
-
+        /* Responsividade */
         @media (max-width: 1024px) {
             .main-content {
                 padding: 2rem;
@@ -657,98 +627,43 @@
             }
         }
 
-        /* TABLETS E CELULARES GRANDES */
-        @media (max-width: 768px) {
+                    @media (max-width: 768px) {
+            #video-background {
+                opacity: 0.35;
+            }
+
             .header-bar {
                 padding: 0.75rem 1rem;
             }
 
-            .header-content {
-                gap: 0.75rem;
-            }
-
-            .logo-section {
-                gap: 10px;
+            .system-metrics {
+                display: none;
             }
 
             .logo {
                 width: 42px;
                 height: 42px;
                 font-size: 1.2rem;
-                border-radius: 12px;
             }
 
             .company-info h1 {
                 font-size: 1.2rem;
-                margin-bottom: 2px;
             }
 
             .company-info p {
                 font-size: 0.75rem;
             }
 
-            .header-actions {
-                flex-wrap: wrap;
-                gap: 8px;
-                justify-content: space-between;
-            }
-
-            /* Esconder métricas do sistema em mobile */
-            .system-metrics {
-                display: none;
-            }
-
-            .status-indicator {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
-
-            .status-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .current-time {
-                font-size: 0.85rem;
-            }
-
             .main-content {
                 padding: 1.25rem;
-            }
-
-            .page-header {
-                margin-bottom: 2rem;
             }
 
             .page-title {
                 font-size: 1.75rem;
             }
 
-            .page-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 1rem;
-            }
-
             .modules-section {
                 padding: 1.5rem;
-                border-radius: 16px;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-                margin-bottom: 1.5rem;
-                padding-bottom: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-            }
-
-            .section-badge {
-                font-size: 0.8rem;
-                padding: 6px 12px;
             }
 
             .modules-grid {
@@ -756,236 +671,25 @@
                 gap: 1rem;
             }
 
-            .module-card {
-                padding: 1.25rem;
-                border-radius: 16px;
-            }
-
-            .module-card:hover {
-                transform: translateY(-4px);
-            }
-
-            .module-header {
-                gap: 12px;
-                margin-bottom: 1rem;
-            }
-
-            .module-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.3rem;
-                border-radius: 12px;
-            }
-
-            .module-info h3 {
-                font-size: 1.1rem;
-            }
-
-            .module-info p {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
-
-            .module-status {
-                top: 1rem;
-                right: 1rem;
-                width: 10px;
-                height: 10px;
-            }
-
-            .feature-tag {
-                font-size: 0.7rem;
-                padding: 3px 6px;
-            }
-
-            .footer {
-                padding: 2rem 1rem 1.5rem;
-                margin-top: 2rem;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-section {
-                text-align: center;
-            }
-
-            .footer-section h4 {
-                font-size: 1rem;
-            }
-
-            .footer-links {
-                align-items: center;
-            }
-
-            .footer-link {
-                font-size: 0.85rem;
-            }
-
-            .footer-bottom {
-                font-size: 0.8rem;
-                padding-top: 1.5rem;
-            }
-
-            /* Esconder decorações em mobile */
-            .decoration-circle {
-                display: none;
-            }
-        }
-
-        /* CELULARES PEQUENOS */
-        @media (max-width: 480px) {
-            .header-bar {
-                padding: 0.6rem 0.75rem;
-            }
-
-            .logo {
-                width: 38px;
-                height: 38px;
-                font-size: 1.1rem;
-            }
-
-            .company-info h1 {
-                font-size: 1.05rem;
-            }
-
-            .company-info p {
-                font-size: 0.7rem;
-            }
-
-            .status-indicator {
-                padding: 5px 10px;
-                font-size: 0.75rem;
-                border-radius: 20px;
-            }
-
-            .current-time {
-                font-size: 0.8rem;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-
-            .page-title {
-                font-size: 1.5rem;
-            }
-
-            .page-subtitle {
-                font-size: 0.85rem;
-            }
-
-            .modules-section {
-                padding: 1.25rem;
-            }
-
-            .section-title {
-                font-size: 1.2rem;
-            }
-
-            .module-card {
-                padding: 1rem;
-            }
-
-            .module-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-            }
-
-            .module-info h3 {
-                font-size: 1rem;
-            }
-
-            .module-info p {
-                font-size: 0.8rem;
-            }
-
-            .footer {
-                padding: 1.5rem 0.75rem 1rem;
-            }
-
-            .footer-grid {
-                gap: 1.5rem;
-            }
-
-            .footer-bottom {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* CELULARES MUITO PEQUENOS */
-        @media (max-width: 360px) {
-            .header-bar {
-                padding: 0.5rem;
-            }
-
-            .logo {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-
-            .company-info h1 {
-                font-size: 0.95rem;
-            }
-
-            .company-info p {
-                font-size: 0.65rem;
-            }
-
-            .main-content {
-                padding: 0.75rem;
-            }
-
-            .page-title {
-                font-size: 1.35rem;
-            }
-
-            .modules-section {
-                padding: 1rem;
-            }
-
-            .module-card {
-                padding: 0.875rem;
-            }
-        }
-
-        /* Melhorias de toque para Android */
-        @media (hover: none) and (pointer: coarse) {
-            .module-card {
-                -webkit-tap-highlight-color: rgba(100, 255, 218, 0.1);
-            }
-
-            .module-card:active {
-                transform: scale(0.98);
-                opacity: 0.9;
-            }
-
-            .footer-link:active {
-                opacity: 0.7;
-            }
-
-            /* Aumentar área de toque */
-            .module-card,
-            .footer-link,
-            .status-indicator {
-                min-height: 44px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-decoration">
-        <div class="decoration-circle"></div>
-        <div class="decoration-circle"></div>
-        <div class="decoration-circle"></div>
-    </div>
+    <!-- Vídeo de fundo -->
+    <video id="video-background" autoplay loop muted playsinline>
+        <source src="https://drive.google.com/file/d/1qbsz9aHdNoWaICe7pFvLnIDcMHqf4s0K/view?usp=sharing" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <!-- Neve caindo -->
+    <div class="snowflakes" id="snowflakes"></div>
 
     <div class="main-container">
-        <!-- Header Sofisticado -->
+        <!-- Header Natalino -->
         <header class="header-bar">
             <div class="header-content">
                 <div class="logo-section">
@@ -1024,14 +728,14 @@
         <!-- Conteúdo Principal -->
         <main class="main-content">
             <div class="page-header">
-                <div class="page-title">Dashboard Executivo</div>
+                <div class="page-title">Feliz Natal!</div>
                 <div class="page-subtitle">Centro de comando integrado para gestão empresarial</div>
             </div>
 
             <!-- Módulos do Sistema -->
             <div class="modules-section">
                 <div class="section-header">
-                    <h2 class="section-title">Módulos Integrados</h2>
+                    <h2 class="section-title">🎄 Módulos Integrados</h2>
                     <div class="section-badge">
                         <i class="fas fa-cube"></i>
                         <span>7 módulos disponíveis</span>
@@ -1190,7 +894,8 @@
                         </div>
                     </div>
 
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" 
+                       class="module-card" target="_blank">
                         <div class="module-status"></div>
                         <div class="module-header">
                             <div class="module-icon veiculos">
@@ -1211,12 +916,12 @@
             </div>
         </main>
 
-        <!-- Footer Profissional -->
+        <!-- Footer Natalino -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-grid">
                     <div class="footer-section">
-                        <div class="footer-logo">Jirau Energia</div>
+                        <div class="footer-logo">Jirau Energia 🎄</div>
                         <p style="color: var(--text-secondary); margin-bottom: 1rem;">
                             Plataforma integrada de gestão empresarial com tecnologia de ponta
                         </p>
@@ -1296,6 +1001,9 @@
                 </div>
 
                 <div class="footer-bottom">
+                    <p style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--christmas-gold); font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                        🎅 A Equipe Jirau Energia deseja um Feliz Natal a todos! 🎄✨
+                    </p>
                     <p>
                         <strong>© 2025 Jirau Energia</strong> - Todos os direitos reservados | 
                         Versão 4.2.1 | 
@@ -1307,88 +1015,5 @@
         </footer>
     </div>
 
-    <script>
-        // Atualizar horário em tempo real
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleString('pt-BR', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            const dateString = now.toLocaleString('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            
-            document.getElementById('currentTime').textContent = timeString;
-            document.getElementById('lastUpdate').textContent = dateString;
-        }
-
-        // Animação de carregamento sofisticada
-        document.addEventListener('DOMContentLoaded', function() {
-            const moduleCards = document.querySelectorAll('.module-card:not(.unavailable)');
-            
-            // Animação para cards de módulos
-            moduleCards.forEach((card, index) => {
-                card.style.animationDelay = `${0.4 + (index * 0.1)}s`;
-                card.addEventListener('click', function(e) {
-                    this.classList.add('loading');
-                    setTimeout(() => {
-                        this.classList.remove('loading');
-                    }, 2000);
-                });
-            });
-            
-            // Inicializar horário
-            updateTime();
-            setInterval(updateTime, 1000);
-
-            // Prevenir clique em módulos indisponíveis
-            const unavailableCards = document.querySelectorAll('.module-card.unavailable');
-            unavailableCards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                });
-            });
-        });
-
-        // Efeito de paralaxe sutil (desabilitado em mobile para performance)
-        if (window.innerWidth > 768) {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
-                const decorations = document.querySelectorAll('.decoration-circle');
-                decorations.forEach((decoration, index) => {
-                    decoration.style.transform = `translateY(${rate * (index + 1) * 0.2}px)`;
-                });
-            });
-
-            // Efeito de hover 3D nos cards (apenas desktop)
-            document.querySelectorAll('.module-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-                });
-            });
-        }
-    </script>
-</body>
-</html>
+    <!-- Neve caindo -->
+    <div class="snowflakes" id="snowflakes"></div>
