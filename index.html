@@ -475,6 +475,10 @@
             background: linear-gradient(135deg, #0f7f4f 0%, #c41e3a 100%);
         }
 
+        .module-icon.recepcao-rj { 
+            background: linear-gradient(135deg, #ffd700 0%, #0f7f4f 100%);
+        }
+
         .module-info h3 {
             font-size: 1.4rem;
             font-weight: 700;
@@ -627,7 +631,7 @@
             }
         }
 
-                    @media (max-width: 768px) {
+        @media (max-width: 768px) {
             #background-image {
                 opacity: 0.4;
             }
@@ -686,9 +690,6 @@
     <!-- Neve caindo -->
     <div class="snowflakes" id="snowflakes"></div>
 
-    <!-- Neve caindo -->
-    <div class="snowflakes" id="snowflakes"></div>
-
     <div class="main-container">
         <!-- Header Natalino -->
         <header class="header-bar">
@@ -739,7 +740,7 @@
                     <h2 class="section-title">🎄 Módulos Integrados</h2>
                     <div class="section-badge">
                         <i class="fas fa-cube"></i>
-                        <span>7 módulos disponíveis</span>
+                        <span>8 módulos disponíveis</span>
                     </div>
                 </div>
 
@@ -817,6 +818,25 @@
                             <span class="feature-tag">Atendimento</span>
                             <span class="feature-tag">Visitantes</span>
                             <span class="feature-tag">Acesso</span>
+                        </div>
+                    </a>
+
+                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" 
+                       class="module-card" target="_blank">
+                        <div class="module-status"></div>
+                        <div class="module-header">
+                            <div class="module-icon recepcao-rj">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="module-info">
+                                <h3>Recepção Rio de Janeiro</h3>
+                                <p>Central de atendimento e controle de acesso do escritório do Rio de Janeiro</p>
+                            </div>
+                        </div>
+                        <div class="module-features">
+                            <span class="feature-tag">Atendimento RJ</span>
+                            <span class="feature-tag">Controle</span>
+                            <span class="feature-tag">Visitantes</span>
                         </div>
                     </a>
 
@@ -1016,5 +1036,37 @@
         </footer>
     </div>
 
-    <!-- Neve caindo -->
-    <div class="snowflakes" id="snowflakes"></div>
+    <script>
+        // Atualizar relógio
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('currentTime').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Data de última atualização
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR');
+
+        // Criar flocos de neve
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const snowflakeCount = 50;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+        
+        createSnowflakes();
+    </script>
+</body>
+</html>
