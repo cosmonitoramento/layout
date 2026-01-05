@@ -3,87 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sistema Integrado Jirau Energia - Dashboard Natalino 🎅</title>
+    <title>Sistema Integrado Jirau Energia - Dashboard Carnaval 🎭</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            --christmas-red: #c41e3a;
-            --christmas-green: #0f7f4f;
-            --christmas-gold: #ffd700;
-            --christmas-white: #ffffff;
-            --christmas-dark-red: #8b1a2e;
-            --christmas-light-red: #ff6b6b;
-            
-            --primary-gradient: linear-gradient(135deg, #c41e3a 0%, #8b1a2e 100%);
-            --secondary-gradient: linear-gradient(135deg, #0f7f4f 0%, #067d54 100%);
-            --success-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            --warning-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.25);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            
-            --text-primary: #ffffff;
-            --text-secondary: #f0f0f0;
-            --text-muted: #d0d0d0;
-            --text-accent: #ffd700;
+            --carnival-red: #FF0066;
+            --carnival-yellow: #FFD700;
+            --carnival-blue: #0066FF;
+            --carnival-pink: #FF1493;
+            --carnival-purple: #9B30FF;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a1428;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0520 0%, #1a0a2e 100%);
             min-height: 100vh;
-            color: var(--text-primary);
-            line-height: 1.6;
+            color: #ffffff;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Imagem de fundo */
-        #background-image {
+        /* Imagem de fundo - COLE O LINK AQUI */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.6;
-            filter: brightness(0.9);
+            background-image: url('https://raw.githubusercontent.com/cosmonitoramento/natal_tema/refs/heads/main/Gemini_Generated_Image_pftdl0pftdl0pftd.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
         }
 
-        /* Overlay para melhorar legibilidade */
-        .image-overlay {
+        /* Overlay escuro para melhor legibilidade */
+        body::after {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(10, 20, 40, 0.3) 0%, rgba(10, 20, 40, 0.5) 100%);
-            z-index: 1;
-            pointer-events: none;
+            background: rgba(10, 5, 32, 0.6);
+            z-index: -1;
         }
 
-        .main-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Neve caindo */
-        .snowflakes {
+        /* Confetes leves */
+        .confetti-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -94,39 +70,49 @@
             overflow: hidden;
         }
 
-        .snowflake {
+        .confetti {
             position: absolute;
             top: -10px;
-            color: white;
-            font-size: 1.5em;
+            font-size: 1.3em;
             animation: fall linear infinite;
-            opacity: 0.9;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            opacity: 0.8;
         }
+
+        .confetti:nth-child(1) { left: 5%; animation-duration: 10s; }
+        .confetti:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 1s; }
+        .confetti:nth-child(3) { left: 25%; animation-duration: 11s; animation-delay: 2s; }
+        .confetti:nth-child(4) { left: 35%; animation-duration: 13s; }
+        .confetti:nth-child(5) { left: 45%; animation-duration: 10s; animation-delay: 1.5s; }
+        .confetti:nth-child(6) { left: 55%; animation-duration: 12s; animation-delay: 2.5s; }
+        .confetti:nth-child(7) { left: 65%; animation-duration: 11s; }
+        .confetti:nth-child(8) { left: 75%; animation-duration: 13s; animation-delay: 1.8s; }
+        .confetti:nth-child(9) { left: 85%; animation-duration: 10s; animation-delay: 2.2s; }
+        .confetti:nth-child(10) { left: 95%; animation-duration: 12s; }
 
         @keyframes fall {
             0% {
                 top: -10%;
-                opacity: 0.8;
+                opacity: 0;
+                transform: rotate(0deg);
             }
+            10% { opacity: 0.8; }
             100% {
-                top: 100%;
-                opacity: 0.2;
+                top: 110%;
+                opacity: 0;
+                transform: rotate(360deg);
             }
         }
 
-        /* Header Natalino */
-        .header-bar {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.6) 0%, rgba(139, 26, 46, 0.6) 100%);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid var(--christmas-gold);
-            border-top: none;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.9) 0%, rgba(255, 215, 0, 0.9) 50%, rgba(0, 102, 255, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--carnival-yellow);
             padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .header-content {
@@ -135,6 +121,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo-section {
@@ -146,251 +134,160 @@
         .logo {
             width: 56px;
             height: 56px;
-            background: var(--primary-gradient);
-            border-radius: 16px;
+            background: linear-gradient(135deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 800;
             font-size: 1.5rem;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 2px solid var(--christmas-gold);
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(255, 215, 0, 1);
-            }
+            border: 3px solid var(--carnival-yellow);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         .company-info h1 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .company-info h1::after {
-            content: ' 🎄';
-            animation: pulse 2s infinite;
+            content: ' 🎭';
+            -webkit-text-fill-color: white;
         }
 
         .company-info p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 0.9rem;
+            color: #f0f0f0;
         }
 
         .header-actions {
             display: flex;
+            gap: 1rem;
             align-items: center;
-            gap: 24px;
+            flex-wrap: wrap;
         }
 
-        .system-metrics {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .metric-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .status-badge {
             padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            border: 1px solid var(--christmas-gold);
-            backdrop-filter: blur(10px);
-        }
-
-        .metric-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--christmas-gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        .metric-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            background: var(--secondary-gradient);
-            border-radius: 25px;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, var(--carnival-red), var(--carnival-yellow));
+            border-radius: 20px;
+            border: 2px solid var(--carnival-yellow);
             color: white;
             font-weight: 600;
-            box-shadow: 0 0 20px rgba(15, 127, 79, 0.5);
-            border: 2px solid var(--christmas-gold);
-            animation: glow 2s ease-in-out infinite;
+            font-size: 0.9rem;
         }
 
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--christmas-gold);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            box-shadow: 0 0 10px var(--christmas-gold);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-        }
-
-        .current-time {
+        .time-display {
             font-family: 'Courier New', monospace;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--christmas-gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            color: var(--carnival-yellow);
         }
 
-        /* Conteúdo Principal */
+        /* Main Content */
         .main-content {
-            flex: 1;
-            padding: 3rem;
             max-width: 1600px;
             margin: 0 auto;
-            width: 100%;
+            padding: 3rem 2rem;
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .page-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            color: var(--christmas-gold);
+            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue), var(--carnival-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         .page-title::before {
-            content: '🎅 ';
+            content: '🎉 ';
+            -webkit-text-fill-color: white;
         }
 
         .page-title::after {
-            content: ' 🎁';
+            content: ' 🎊';
+            -webkit-text-fill-color: white;
         }
 
         .page-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: #f0f0f0;
+            font-size: 1.1rem;
         }
 
-        /* Seção de Módulos */
+        /* Modules Section */
         .modules-section {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.25) 0%, rgba(15, 127, 79, 0.25) 100%);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid var(--christmas-gold);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.2);
-            animation: fadeInUp 1s ease 0.4s both;
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.15), rgba(255, 215, 0, 0.15), rgba(0, 102, 255, 0.15));
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--carnival-yellow);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--christmas-gold);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--carnival-yellow);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--christmas-gold);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .section-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--primary-gradient);
-            border-radius: 20px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--carnival-red), var(--carnival-yellow));
+            border-radius: 15px;
+            border: 2px solid var(--carnival-yellow);
             color: white;
-            font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
-            border: 2px solid var(--christmas-gold);
+            font-size: 0.85rem;
         }
 
+        /* Modules Grid */
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
 
         .module-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--christmas-gold);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--carnival-yellow);
+            border-radius: 16px;
+            padding: 1.5rem;
             text-decoration: none;
-            color: inherit;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            color: white;
+            transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .module-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.3);
-            border-color: var(--christmas-light-red);
-        }
-
-        .module-card:hover .module-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .module-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .module-card:hover::before {
-            left: 100%;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            border-color: var(--carnival-pink);
         }
 
         .module-card.unavailable {
@@ -398,152 +295,70 @@
             cursor: not-allowed;
         }
 
-        .module-card.unavailable::after {
-            content: '🎁 Em breve';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--warning-gradient);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid var(--christmas-gold);
-        }
-
         .module-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
         }
 
         .module-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            border: 3px solid var(--carnival-yellow);
             flex-shrink: 0;
-            border: 2px solid var(--christmas-gold);
         }
 
-        .module-icon.restaurante { 
-            background: linear-gradient(135deg, #c41e3a 0%, #8b1a2e 100%);
-        }
-        
-        .module-icon.patrimonial { 
-            background: linear-gradient(135deg, #0f7f4f 0%, #067d54 100%);
-        }
-        
-        .module-icon.recepcao { 
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-        }
-        
-        .module-icon.acessos { 
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-        }
-
-        .module-icon.portaria { 
-            background: linear-gradient(135deg, #c41e3a 0%, #0f7f4f 100%);
-        }
-
-        .module-icon.visitantes { 
-            background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
-        }
-
-        .module-icon.cftv { 
-            background: linear-gradient(135deg, #0f7f4f 0%, #ffd700 100%);
-        }
-
-        .module-icon.veiculos { 
-            background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
-        }
-
-        .module-icon.credenciais { 
-            background: linear-gradient(135deg, #c41e3a 0%, #ffd700 100%);
-        }
-        
-        .module-icon.sso { 
-            background: linear-gradient(135deg, #0f7f4f 0%, #c41e3a 100%);
-        }
-
-        .module-icon.recepcao-rj { 
-            background: linear-gradient(135deg, #ffd700 0%, #0f7f4f 100%);
-        }
+        .module-icon.restaurante { background: linear-gradient(135deg, #FF0066, #FF1493); }
+        .module-icon.acessos { background: linear-gradient(135deg, #9B30FF, #FF1493); }
+        .module-icon.patrimonial { background: linear-gradient(135deg, #FFD700, #FF8C00); }
+        .module-icon.recepcao { background: linear-gradient(135deg, #0066FF, #00BFFF); }
+        .module-icon.portaria { background: linear-gradient(135deg, #FF0066, #FFD700); }
+        .module-icon.credenciais { background: linear-gradient(135deg, #9B30FF, #FFD700); }
+        .module-icon.sso { background: linear-gradient(135deg, #FF8C00, #FF0066); }
+        .module-icon.visitantes { background: linear-gradient(135deg, #0066FF, #9B30FF); }
+        .module-icon.veiculos { background: linear-gradient(135deg, #FF1493, #FF8C00); }
 
         .module-info h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 0.5rem;
         }
 
         .module-info p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            font-weight: 400;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            font-size: 0.9rem;
+            color: #d0d0d0;
+            line-height: 1.4;
         }
 
-        .module-status {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--christmas-gold);
-            box-shadow: 0 0 20px var(--christmas-gold);
-            animation: pulse 2s infinite;
-        }
-
-        .module-status.unavailable {
-            background: var(--christmas-light-red);
-            box-shadow: 0 0 20px var(--christmas-light-red);
-        }
-
-        .module-status.warning {
-            background: #fbbf24;
-            box-shadow: 0 0 20px #fbbf24;
-        }
-
-        .module-features {
-            margin-top: 1rem;
+        .module-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
-        .feature-tag {
-            font-size: 0.75rem;
-            padding: 4px 8px;
+        .tag {
+            padding: 4px 10px;
             background: rgba(255, 215, 0, 0.2);
-            color: var(--christmas-gold);
-            border-radius: 12px;
-            border: 1px solid var(--christmas-gold);
-            font-weight: 500;
+            border: 2px solid var(--carnival-yellow);
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: var(--carnival-yellow);
+            font-weight: 600;
         }
 
-        /* Footer Natalino */
+        /* Footer */
         .footer {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.6) 0%, rgba(15, 127, 79, 0.6) 100%);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid var(--christmas-gold);
-            border-bottom: none;
-            padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
-            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.9), rgba(255, 215, 0, 0.9), rgba(0, 102, 255, 0.9));
+            backdrop-filter: blur(10px);
+            border-top: 3px solid var(--carnival-yellow);
+            padding: 2rem;
+            margin-top: 3rem;
         }
 
         .footer-content {
@@ -553,520 +368,361 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h4 {
-            font-size: 1.1rem;
+            color: var(--carnival-yellow);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
-            color: var(--christmas-gold);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0.5rem;
         }
 
         .footer-link {
-            color: var(--text-secondary);
+            color: #f0f0f0;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 8px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
 
         .footer-link:hover {
-            color: var(--christmas-gold);
+            color: var(--carnival-yellow);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 2px solid var(--christmas-gold);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--carnival-yellow);
         }
 
-        .footer-logo {
+        .footer-message {
             font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--christmas-gold);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-info {
+            color: #d0d0d0;
+            font-size: 0.85rem;
         }
 
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .main-content {
-                padding: 2rem;
-            }
-            
-            .page-title {
-                font-size: 2.5rem;
-            }
-            
-            .modules-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            #background-image {
-                opacity: 0.4;
-            }
-
-            .header-bar {
-                padding: 0.75rem 1rem;
-            }
-
-            .system-metrics {
-                display: none;
-            }
-
-            .logo {
-                width: 42px;
-                height: 42px;
-                font-size: 1.2rem;
-            }
-
-            .company-info h1 {
-                font-size: 1.2rem;
-            }
-
-            .company-info p {
-                font-size: 0.75rem;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
 
             .main-content {
-                padding: 1.25rem;
+                padding: 2rem 1rem;
             }
 
             .page-title {
-                font-size: 1.75rem;
-            }
-
-            .modules-section {
-                padding: 1.5rem;
+                font-size: 2rem;
             }
 
             .modules-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Imagem de fundo -->
-    <img id="background-image" src="https://raw.githubusercontent.com/cosmonitoramento/natal_tema/refs/heads/main/papai%20noel.png" alt="Papai Noel">
-
-    <div class="image-overlay"></div>
-
-    <!-- Neve caindo -->
-    <div class="snowflakes" id="snowflakes"></div>
-
-    <div class="main-container">
-        <!-- Header Natalino -->
-        <header class="header-bar">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="logo">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="company-info">
-                        <h1>Jirau Energia</h1>
-                        <p>Sistema Integrado de Gestão Empresarial</p>
-                    </div>
-                </div>
-                <div class="header-actions">
-                    <div class="system-metrics">
-                        <div class="metric-item">
-                            <div class="metric-value">99.9%</div>
-                            <div class="metric-label">Uptime</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">1.2ms</div>
-                            <div class="metric-label">Latência</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-value">847</div>
-                            <div class="metric-label">Usuários</div>
-                        </div>
-                    </div>
-                    <div class="status-indicator">
-                        <div class="status-dot"></div>
-                        <span>Sistema Online</span>
-                    </div>
-                    <div class="current-time" id="currentTime"></div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Conteúdo Principal -->
-        <main class="main-content">
-            <div class="page-header">
-                <div class="page-title">Feliz Natal!</div>
-                <div class="page-subtitle">Centro de comando integrado para gestão empresarial</div>
-            </div>
-
-            <!-- Módulos do Sistema -->
-            <div class="modules-section">
-                <div class="section-header">
-                    <h2 class="section-title">🎄 Módulos Integrados</h2>
-                    <div class="section-badge">
-                        <i class="fas fa-cube"></i>
-                        <span>8 módulos disponíveis</span>
-                    </div>
-                </div>
-
-                <div class="modules-grid">
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon restaurante">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Restaurante</h3>
-                                <p>Gestão completa de cardápios, pedidos, controle nutricional e análise de custos operacionais</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Registros</span>
-                            <span class="feature-tag">Acessos</span>
-                            <span class="feature-tag">Gráficos</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon acessos">
-                                <i class="fas fa-door-open"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Acessos no Restaurante</h3>
-                                <p>Monitoramento em tempo real do fluxo de entrada e saída do restaurante</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Tempo Real</span>
-                            <span class="feature-tag">Controle</span>
-                            <span class="feature-tag">Fluxo</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon patrimonial">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Patrimonial</h3>
-                                <p>Controle avançado de ativos, inventários automatizados e relatórios de performance</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Ativos</span>
-                            <span class="feature-tag">Inventário</span>
-                            <span class="feature-tag">Relatórios</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon recepcao">
-                                <i class="fas fa-concierge-bell"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Recepção</h3>
-                                <p>Central de atendimento, gestão de visitantes e controle inteligente de acesso</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Atendimento</span>
-                            <span class="feature-tag">Visitantes</span>
-                            <span class="feature-tag">Acesso</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon recepcao-rj">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Recepção Rio de Janeiro</h3>
-                                <p>Central de atendimento e controle de acesso do escritório do Rio de Janeiro</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Atendimento RJ</span>
-                            <span class="feature-tag">Controle</span>
-                            <span class="feature-tag">Visitantes</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon portaria">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Controle de Portaria</h3>
-                                <p>Sistema integrado para controle de acesso principal, registro de visitantes e autorização de entrada</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Segurança</span>
-                            <span class="feature-tag">Autorização</span>
-                            <span class="feature-tag">Registro</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon credenciais">
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Gestão de Credenciais</h3>
-                                <p>Controle completo de crachás, cartões de acesso e permissões de usuários do sistema</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Crachás</span>
-                            <span class="feature-tag">Permissões</span>
-                            <span class="feature-tag">Biometria</span>
-                        </div>
-                    </a>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" 
-                       class="module-card" target="_blank">
-                        <div class="module-status warning"></div>
-                        <div class="module-header">
-                            <div class="module-icon sso">
-                                <i class="fas fa-hard-hat"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Saúde e Segurança Ocupacional</h3>
-                                <p>Controle de acessos, pessoas presentes na usina de Jirau Energia, lista de colaboradores por dia e gestão integrada de usuários</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Controle de Acesso</span>
-                            <span class="feature-tag">Presença</span>
-                            <span class="feature-tag">Colaboradores</span>
-                        </div>
-                    </a>
-
-                    <div class="module-card unavailable">
-                        <div class="module-status unavailable"></div>
-                        <div class="module-header">
-                            <div class="module-icon visitantes">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Gestão de Visitantes</h3>
-                                <p>Sistema específico para cadastro detalhado de visitantes, controle de acompanhantes e áreas autorizadas</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Cadastro</span>
-                            <span class="feature-tag">Acompanhamento</span>
-                            <span class="feature-tag">Autorização</span>
-                        </div>
-                    </div>
-
-                    <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" 
-                       class="module-card" target="_blank">
-                        <div class="module-status"></div>
-                        <div class="module-header">
-                            <div class="module-icon veiculos">
-                                <i class="fas fa-car"></i>
-                            </div>
-                            <div class="module-info">
-                                <h3>Controle de Veículos</h3>
-                                <p>Gestão de entrada e saída de veículos, controle de estacionamento e registro de placas</p>
-                            </div>
-                        </div>
-                        <div class="module-features">
-                            <span class="feature-tag">Veículos</span>
-                            <span class="feature-tag">Pátio</span>
-                            <span class="feature-tag">Rastreamento</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer Natalino -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <div class="footer-logo">Jirau Energia 🎄</div>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                            Plataforma integrada de gestão empresarial com tecnologia de ponta
-                        </p>
-                        <div class="footer-links">
-                            <a href="mailto:cos.monitoramento@jirauenergia.com.br" class="footer-link">
-                                <i class="fas fa-envelope"></i>
-                                cos.monitoramento@jirauenergia.com.br
-                            </a>
-                            <a href="mailto:recepcao.portaria@jirauenergia.com.br" class="footer-link">
-                                <i class="fas fa-envelope"></i>
-                                recepcao.portaria@jirauenergia.com.br
-                            </a>
-                            <a href="tel:+5555996091260" class="footer-link">
-                                <i class="fas fa-phone"></i>
-                                COS: (69) 99609-1260
-                            </a>
-                            <a href="tel:+5569999421260" class="footer-link">
-                                <i class="fas fa-phone"></i>
-                                Recepção: (69) 99942-1260
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Recursos</h4>
-                        <div class="footer-links">
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-book"></i>
-                                Documentação
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-graduation-cap"></i>
-                                Centro de Treinamento
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-video"></i>
-                                Webinars
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Suporte</h4>
-                        <div class="footer-links">
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-life-ring"></i>
-                                Central de Ajuda
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-headset"></i>
-                                Suporte Técnico 24/7
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-heart-pulse"></i>
-                                Status do Sistema
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Empresa</h4>
-                        <div class="footer-links">
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-building"></i>
-                                Sobre Nós
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-newspaper"></i>
-                                Blog
-                            </a>
-                            <a href="#" class="footer-link">
-                                <i class="fas fa-shield-alt"></i>
-                                Segurança
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--christmas-gold); font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
-                        🎅 A Equipe Jirau Energia deseja um Feliz Natal a todos! 🎄✨
-                    </p>
-                    <p>
-                        <strong>© 2025 Jirau Energia</strong> - Todos os direitos reservados | 
-                        Versão 4.2.1 | 
-                        Desenvolvido por <strong>Andeilsson Amaral</strong> |
-                        Última atualização: <span id="lastUpdate"></span>
-                    </p>
-                </div>
-            </div>
-        </footer>
+    <!-- Confetes -->
+    <div class="confetti-container">
+        <div class="confetti">🎊</div>
+        <div class="confetti">🎉</div>
+        <div class="confetti">🎭</div>
+        <div class="confetti">🎪</div>
+        <div class="confetti">🎊</div>
+        <div class="confetti">🎉</div>
+        <div class="confetti">🎭</div>
+        <div class="confetti">🎪</div>
+        <div class="confetti">🎊</div>
+        <div class="confetti">🎉</div>
     </div>
 
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="company-info">
+                    <h1>Jirau Energia</h1>
+                    <p>Sistema Integrado de Gestão Empresarial</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status-badge">
+                    <i class="fas fa-circle"></i> Sistema Online
+                </div>
+                <div class="time-display" id="currentTime"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Viva o Carnaval!</h1>
+            <p class="page-subtitle">Centro de comando integrado para gestão empresarial</p>
+        </div>
+
+        <!-- Modules -->
+        <section class="modules-section">
+            <div class="section-header">
+                <h2 class="section-title">🎭 Módulos Integrados</h2>
+                <div class="section-badge">
+                    <i class="fas fa-cube"></i> 9 módulos
+                </div>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Restaurante -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon restaurante">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Restaurante</h3>
+                            <p>Gestão completa de cardápios, pedidos e controle nutricional</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Registros</span>
+                        <span class="tag">Acessos</span>
+                        <span class="tag">Gráficos</span>
+                    </div>
+                </a>
+
+                <!-- Acessos Restaurante -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon acessos">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Acessos no Restaurante</h3>
+                            <p>Monitoramento em tempo real do fluxo de entrada e saída</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Tempo Real</span>
+                        <span class="tag">Controle</span>
+                    </div>
+                </a>
+
+                <!-- Patrimonial -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon patrimonial">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Patrimonial</h3>
+                            <p>Controle avançado de ativos e inventários automatizados</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Ativos</span>
+                        <span class="tag">Inventário</span>
+                    </div>
+                </a>
+
+                <!-- Recepção -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon recepcao">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Recepção</h3>
+                            <p>Central de atendimento e gestão de visitantes</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Atendimento</span>
+                        <span class="tag">Visitantes</span>
+                    </div>
+                </a>
+
+                <!-- Portaria -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon portaria">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Controle de Portaria</h3>
+                            <p>Sistema integrado para controle de acesso principal</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Segurança</span>
+                        <span class="tag">Autorização</span>
+                    </div>
+                </a>
+
+                <!-- Credenciais -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon credenciais">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Gestão de Credenciais</h3>
+                            <p>Controle completo de crachás e cartões de acesso</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Crachás</span>
+                        <span class="tag">Permissões</span>
+                    </div>
+                </a>
+
+                <!-- SSO -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon sso">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Saúde e Segurança Ocupacional</h3>
+                            <p>Controle de acessos e pessoas presentes na usina</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Controle</span>
+                        <span class="tag">Presença</span>
+                    </div>
+                </a>
+
+                <!-- Visitantes -->
+                <div class="module-card unavailable">
+                    <div class="module-header">
+                        <div class="module-icon visitantes">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Gestão de Visitantes</h3>
+                            <p>Sistema específico para cadastro de visitantes</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">🎪 Em breve</span>
+                    </div>
+                </div>
+
+                <!-- Veículos -->
+                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_blank">
+                    <div class="module-header">
+                        <div class="module-icon veiculos">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="module-info">
+                            <h3>Controle de Veículos</h3>
+                            <p>Gestão de entrada e saída de veículos</p>
+                        </div>
+                    </div>
+                    <div class="module-tags">
+                        <span class="tag">Veículos</span>
+                        <span class="tag">Pátio</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Jirau Energia 🎭</h4>
+                    <div class="footer-links">
+                        <a href="mailto:cos.monitoramento@jirauenergia.com.br" class="footer-link">
+                            <i class="fas fa-envelope"></i> COS Monitoramento
+                        </a>
+                        <a href="mailto:recepcao.portaria@jirauenergia.com.br" class="footer-link">
+                            <i class="fas fa-envelope"></i> Recepção
+                        </a>
+                        <a href="tel:+5569996091260" class="footer-link">
+                            <i class="fas fa-phone"></i> (69) 99609-1260
+                        </a>
+                        <a href="tel:+5569999421260" class="footer-link">
+                            <i class="fas fa-phone"></i> (69) 99942-1260
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-book"></i> Documentação</a>
+                        <a href="#" class="footer-link"><i class="fas fa-graduation-cap"></i> Treinamento</a>
+                        <a href="#" class="footer-link"><i class="fas fa-video"></i> Webinars</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-life-ring"></i> Ajuda</a>
+                        <a href="#" class="footer-link"><i class="fas fa-headset"></i> Suporte 24/7</a>
+                        <a href="#" class="footer-link"><i class="fas fa-heart-pulse"></i> Status</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fas fa-building"></i> Sobre</a>
+                        <a href="#" class="footer-link"><i class="fas fa-newspaper"></i> Blog</a>
+                        <a href="#" class="footer-link"><i class="fas fa-shield-alt"></i> Segurança</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-message">🎭 A Equipe Jirau Energia deseja um Feliz Carnaval a todos! 🎉🎊</p>
+                <p class="footer-info">
+                    © 2025 Jirau Energia - Versão 4.2.1 | Desenvolvido por Andeilsson Amaral | 
+                    Atualização: <span id="lastUpdate"></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Atualizar relógio
         function updateTime() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            document.getElementById('currentTime').textContent = timeString;
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('pt-BR');
+            document.getElementById('lastUpdate').textContent = now.toLocaleString('pt-BR');
         }
-        setInterval(updateTime, 1000);
         updateTime();
-
-        // Data de última atualização
-        document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR');
-
-        // Criar flocos de neve
-        function createSnowflakes() {
-            const snowflakesContainer = document.getElementById('snowflakes');
-            const snowflakeCount = 50;
-            
-            for (let i = 0; i < snowflakeCount; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.innerHTML = '❄';
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                snowflakesContainer.appendChild(snowflake);
-            }
-        }
-        
-        createSnowflakes();
+        setInterval(updateTime, 1000);
     </script>
 </body>
 </html>
