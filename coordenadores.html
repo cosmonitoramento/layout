@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Coordenadores - Jirau Energia 🎭</title>
+    <title>Coordenações de Manutenção - Jirau Energia</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,167 +13,86 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --carnival-red: #FF0066;
-            --carnival-yellow: #FFD700;
-            --carnival-blue: #0066FF;
-            --carnival-pink: #FF1493;
-            --carnival-purple: #9B30FF;
-        }
-
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0a0520 0%, #1a0a2e 100%);
-            min-height: 100vh;
-            color: #ffffff;
+            background: #f5f7fa;
+            color: #2d3748;
             overflow-x: hidden;
-            position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://github.com/cosmonitoramento/natal_tema/blob/main/Gemini_Generated_Image_pftdl0pftdl0pftd.png?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 5, 32, 0.6);
-            z-index: -1;
-        }
-
-        /* Confetes */
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        .confetti {
-            position: absolute;
-            top: -10px;
-            font-size: 1.3em;
-            animation: fall linear infinite;
-            opacity: 0.8;
-        }
-
-        .confetti:nth-child(1) { left: 5%; animation-duration: 10s; }
-        .confetti:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 1s; }
-        .confetti:nth-child(3) { left: 25%; animation-duration: 11s; animation-delay: 2s; }
-        .confetti:nth-child(4) { left: 35%; animation-duration: 13s; }
-        .confetti:nth-child(5) { left: 45%; animation-duration: 10s; animation-delay: 1.5s; }
-        .confetti:nth-child(6) { left: 55%; animation-duration: 12s; animation-delay: 2.5s; }
-        .confetti:nth-child(7) { left: 65%; animation-duration: 11s; }
-        .confetti:nth-child(8) { left: 75%; animation-duration: 13s; animation-delay: 1.8s; }
-
-        @keyframes fall {
-            0% {
-                top: -10%;
-                opacity: 0;
-                transform: rotate(0deg);
-            }
-            10% { opacity: 0.8; }
-            100% {
-                top: 110%;
-                opacity: 0;
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Header */
+        /* Header Profissional */
         .header {
-            background: linear-gradient(135deg, rgba(255, 0, 102, 0.9) 0%, rgba(255, 215, 0, 0.9) 50%, rgba(0, 102, 255, 0.9) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--carnival-yellow);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a4a75 100%);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 1rem;
         }
 
         .logo {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue));
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            border: 3px solid var(--carnival-yellow);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
         }
 
         .company-info h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: white;
+            margin-bottom: 0.3rem;
         }
 
         .company-info p {
-            font-size: 0.9rem;
-            color: #f0f0f0;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
         }
 
         .back-button {
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--carnival-purple), var(--carnival-blue));
-            border: 2px solid var(--carnival-yellow);
-            border-radius: 12px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
             color: white;
             text-decoration: none;
             font-weight: 600;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s;
         }
 
         .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
 
         /* Main Content */
         .main-content {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
@@ -184,148 +103,217 @@
         }
 
         .page-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow), var(--carnival-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .page-title::before {
-            content: '🎯 ';
-            -webkit-text-fill-color: white;
+            color: #1a202c;
+            margin-bottom: 0.8rem;
         }
 
         .page-subtitle {
-            color: #f0f0f0;
             font-size: 1.1rem;
-            max-width: 800px;
+            color: #718096;
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Coordenações Section */
-        .coordenacoes-section {
-            background: linear-gradient(135deg, rgba(255, 0, 102, 0.15), rgba(255, 215, 0, 0.15), rgba(0, 102, 255, 0.15));
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--carnival-yellow);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        /* Stats Cards */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .section-header {
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--carnival-yellow);
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--carnival-red), var(--carnival-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
         }
 
-        .section-badge {
-            padding: 6px 14px;
-            background: linear-gradient(135deg, var(--carnival-red), var(--carnival-yellow));
-            border-radius: 15px;
-            border: 2px solid var(--carnival-yellow);
-            color: white;
-            font-weight: 600;
-            font-size: 0.85rem;
+        .stat-icon.primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .stat-icon.success { background: linear-gradient(135deg, #48bb78, #38a169); color: white; }
+        .stat-icon.warning { background: linear-gradient(135deg, #ed8936, #dd6b20); color: white; }
+        .stat-icon.info { background: linear-gradient(135deg, #4299e1, #3182ce); color: white; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a202c;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 500;
         }
 
         /* Coordenações Grid */
         .coordenacoes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .coordenacao-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--carnival-yellow);
-            border-radius: 16px;
-            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
             text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            color: inherit;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
         .coordenacao-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-            border-color: var(--carnival-pink);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-color: #4299e1;
         }
 
-        .coordenacao-header {
+        .card-header {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .coordenacao-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            border: 3px solid var(--carnival-yellow);
+            font-size: 2rem;
             flex-shrink: 0;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .icon-mecanica { background: linear-gradient(135deg, #FF0066, #FF1493); }
-        .icon-eletrica { background: linear-gradient(135deg, #FFD700, #FF8C00); }
-        .icon-civil { background: linear-gradient(135deg, #0066FF, #00BFFF); }
-        .icon-planejamento { background: linear-gradient(135deg, #9B30FF, #FF1493); }
-        .icon-automacao { background: linear-gradient(135deg, #00BFFF, #9B30FF); }
+        .icon-mecanica { background: linear-gradient(135deg, #f56565, #e53e3e); }
+        .icon-eletrica { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+        .icon-civil { background: linear-gradient(135deg, #4299e1, #3182ce); }
+        .icon-planejamento { background: linear-gradient(135deg, #9f7aea, #805ad5); }
+        .icon-automacao { background: linear-gradient(135deg, #48bb78, #38a169); }
 
-        .coordenacao-info h3 {
-            font-size: 1.2rem;
+        .card-info h3 {
+            font-size: 1.4rem;
             font-weight: 700;
+            color: #1a202c;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
-        .coordenacao-info p {
-            font-size: 0.9rem;
-            color: #d0d0d0;
-            line-height: 1.4;
+        .card-info .coordenador {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
         }
 
-        .coordenacao-tags {
+        .card-info .coordenador i {
+            color: #4299e1;
+        }
+
+        .card-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 1.5rem 0;
+        }
+
+        .card-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .tag {
-            padding: 4px 10px;
-            background: rgba(255, 215, 0, 0.2);
-            border: 2px solid var(--carnival-yellow);
-            border-radius: 10px;
-            font-size: 0.75rem;
-            color: var(--carnival-yellow);
+            padding: 6px 14px;
+            background: #edf2f7;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #4a5568;
             font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .coordenacao-card:hover .tag {
+            background: #e6f2ff;
+            color: #2c5282;
+        }
+
+        /* Info Box */
+        .info-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #edf2f7, #e6fffa);
+            border-radius: 16px;
+            border-left: 5px solid #4299e1;
+        }
+
+        .info-box h4 {
+            color: #2c5282;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .info-box li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
             .page-title {
                 font-size: 2rem;
             }
@@ -334,26 +322,19 @@
                 grid-template-columns: 1fr;
             }
 
-            .header-content {
-                flex-direction: column;
-                text-align: center;
+            .stats-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-overview {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Confetes -->
-    <div class="confetti-container">
-        <div class="confetti">🎊</div>
-        <div class="confetti">🎉</div>
-        <div class="confetti">🎭</div>
-        <div class="confetti">🎪</div>
-        <div class="confetti">🎊</div>
-        <div class="confetti">🎉</div>
-        <div class="confetti">🎭</div>
-        <div class="confetti">🎪</div>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -362,8 +343,8 @@
                     <i class="fas fa-bolt"></i>
                 </div>
                 <div class="company-info">
-                    <h1>🎭 Coordenadores - Jirau Energia</h1>
-                    <p>Gestão Estratificada por Coordenação</p>
+                    <h1>Jirau Energia</h1>
+                    <p>Coordenações de Manutenção</p>
                 </div>
             </div>
             <a href="index.html" class="back-button">
@@ -375,135 +356,165 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h1 class="page-title">Coordenações de Manutenção</h1>
+            <h1 class="page-title">Gestão de Coordenações</h1>
             <p class="page-subtitle">
-                Acesse detalhes completos de cada coordenação, incluindo headcount, 
-                colaboradores e indicadores de performance
+                Acesse informações detalhadas de cada coordenação de manutenção, incluindo 
+                indicadores de performance, headcount e gestão de equipes
             </p>
         </div>
 
-        <!-- Coordenações Section -->
-        <section class="coordenacoes-section">
-            <div class="section-header">
-                <h2 class="section-title">🎯 Áreas de Coordenação</h2>
-                <div class="section-badge">
-                    <i class="fas fa-sitemap"></i> 5 coordenações
+        <!-- Stats Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Usuários Ativos</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="coordenacoes-grid">
-                <!-- Manutenção Mecânica -->
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511" class="coordenacao-card">
-                    <div class="coordenacao-header">
-                        <div class="coordenacao-icon icon-mecanica">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div class="coordenacao-info">
-                            <h3>Manutenção Mecânica</h3>
-                            <p>Coordenador:Erik Duran</p>
-                        </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon success">
+                        <i class="fas fa-sync-alt"></i>
                     </div>
-                    <div class="coordenacao-tags">
-                        <span class="tag">Turbinas</span>
-                        <span class="tag">Equipamentos</span>
-                        <span class="tag">Preventiva</span>
+                    <div>
+                        <div class="stat-value">Tempo Real</div>
+                        <div class="stat-label">Atualização de Dados</div>
                     </div>
-                </a>
-
-                <!-- Manutenção Elétrica -->
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60" class="coordenacao-card">
-                    <div class="coordenacao-header">
-                        <div class="coordenacao-icon icon-eletrica">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="coordenacao-info">
-                            <h3>Manutenção Elétrica</h3>
-                            <p>Coordenador: Rogerio Lucena</p>
-                        </div>
-                    </div>
-                    <div class="coordenacao-tags">
-                        <span class="tag">Energia</span>
-                        <span class="tag">Subestações</span>
-                        <span class="tag">Transformadores</span>
-                    </div>
-                </a>
-
-                <!-- Manutenção Civil -->
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca" class="coordenacao-card">
-                    <div class="coordenacao-header">
-                        <div class="coordenacao-icon icon-civil">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <div class="coordenacao-info">
-                            <h3>Civil e Segurança de Babarragem</h3>
-                            <p>Coordenadora: Jakelline Silva</p>
-                        </div>
-                    </div>
-                    <div class="coordenacao-tags">
-                        <span class="tag">Estruturas</span>
-                        <span class="tag">Barragem</span>
-                        <span class="tag">Infraestrutura</span>
-                    </div>
-                </a>
-
-                <!-- Planejamento de Manutenção -->
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c" class="coordenacao-card">
-                    <div class="coordenacao-header">
-                        <div class="coordenacao-icon icon-planejamento">
-                            <i class="fas fa-clipboard-list"></i>
-                        </div>
-                        <div class="coordenacao-info">
-                            <h3>Manutenção Sistema elétrica</h3>
-                            <p>Coordenador: Romulo Ferreira</p>
-                        </div>
-                    </div>
-                    <div class="coordenacao-tags">
-                        <span class="tag">PCM</span>
-                        <span class="tag">Cronogramas</span>
-                        <span class="tag">Estratégia</span>
-                    </div>
-                </a>
-
-                <!-- Automação e Controle -->
-                <a href="automacao.html" class="coordenacao-card">
-                    <div class="coordenacao-header">
-                        <div class="coordenacao-icon icon-automacao">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="coordenacao-info">
-                            <h3>Automação e Controle</h3>
-                            <p>Coordenador: ******</p>
-                        </div>
-                    </div>
-                    <div class="coordenacao-tags">
-                        <span class="tag">SCADA</span>
-                        <span class="tag">Sensores</span>
-                        <span class="tag">Monitoramento</span>
-                    </div>
-                </a>
+                </div>
             </div>
-        </section>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">Multi-device</div>
+                        <div class="stat-label">Acesso Responsivo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon info">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Coordenações Cadastradas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coordenações Grid -->
+        <div class="coordenacoes-grid">
+            <!-- Manutenção Mecânica -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511" class="coordenacao-card">
+                <div class="card-header">
+                    <div class="card-icon icon-mecanica">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Manutenção Mecânica</h3>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Erik Duran</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Turbinas</span>
+                    <span class="tag">Equipamentos</span>
+                    <span class="tag">Manutenção Preventiva</span>
+                </div>
+            </a>
+
+            <!-- Manutenção Elétrica -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60" class="coordenacao-card">
+                <div class="card-header">
+                    <div class="card-icon icon-eletrica">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Manutenção Elétrica</h3>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Rogério Lucena</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Energia</span>
+                    <span class="tag">Subestações</span>
+                    <span class="tag">Transformadores</span>
+                </div>
+            </a>
+
+            <!-- Civil e Segurança -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca" class="coordenacao-card">
+                <div class="card-header">
+                    <div class="card-icon icon-civil">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Civil e Segurança de Barragem</h3>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenadora: Jakelline Silva</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Estruturas</span>
+                    <span class="tag">Barragem</span>
+                    <span class="tag">Infraestrutura</span>
+                </div>
+            </a>
+
+            <!-- Sistema Elétrico -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c" class="coordenacao-card">
+                <div class="card-header">
+                    <div class="card-icon icon-planejamento">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Manutenção Sistema Elétrica</h3>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Rômulo Ferreira</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">PCM</span>
+                    <span class="tag">Cronogramas</span>
+                    <span class="tag">Estratégia</span>
+                </div>
+            </a>
+        </div>
 
         <!-- Info Box -->
-        <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.1); border: 2px solid var(--carnival-yellow); border-radius: 12px;">
-            <h4 style="color: var(--carnival-yellow); margin-bottom: 0.5rem;">
-                <i class="fas fa-info-circle"></i> Como usar
-            </h4>
-            <p style="color: #d0d0d0; line-height: 1.6;">
-                Clique em qualquer coordenação acima para acessar informações detalhadas, incluindo:<br>
-                <strong>• Headcount estratificado</strong> (próprios e terceiros)<br>
-                <strong>• Lista de colaboradores</strong> e suas funções<br>
-                <strong>• Indicadores de performance</strong> e presença<br>
-                <strong>• Histórico</strong> e estatísticas da área
-            </p>
+        <div class="info-box">
+            <h4><i class="fas fa-info-circle"></i> Informações Disponíveis</h4>
+            <ul>
+                <li>Headcount estratificado por tipo de vínculo (próprios e terceiros)</li>
+                <li>Indicadores de performance e disponibilidade operacional</li>
+                <li>Gestão de equipes e distribuição de colaboradores</li>
+                <li>Histórico e estatísticas detalhadas de cada área</li>
+            </ul>
         </div>
     </main>
-
-    <script>
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Página de coordenadores carregada');
-        });
-    </script>
 </body>
 </html>
