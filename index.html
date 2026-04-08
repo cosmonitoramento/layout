@@ -2,57 +2,52 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sistema Integrado Jirau Energia - Páscoa 🐣</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jirau Energia - Jogos do Trabalhador 🏆</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --egg-yellow:   #F9E04B;
-            --egg-pink:     #F472B6;
-            --egg-lilac:    #C084FC;
-            --egg-mint:     #34D399;
-            --egg-sky:      #60A5FA;
-            --egg-orange:   #FB923C;
-            --dark-bg:      #1C0D05;
-            --darker-bg:    #110802;
+            --gold: #F4A011;
+            --blue: #1B98E0;
+            --dark: #0a0e27;
         }
-
         body {
             font-family: 'Nunito', sans-serif;
-            background: var(--darker-bg);
+            background: var(--dark);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
             position: relative;
         }
 
+        /* Vídeo de fundo */
+        #background-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        #background-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            transition: opacity 1.2s ease-in-out;
+        }
+
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background:
-                radial-gradient(ellipse 70% 50% at 15% 15%, rgba(249,224,75,0.12) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 50% at 85% 85%, rgba(192,132,252,0.12) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 50% 50%, rgba(244,114,182,0.07) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url('https://raw.githubusercontent.com/cosmonitoramento/natal_tema/refs/heads/main/PASCOA.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.07;
+            background: linear-gradient(rgba(10,14,39,0.85), rgba(5,7,15,0.92));
             z-index: -1;
         }
 
-        /* ─── ELEMENTOS FLUTUANTES ─── */
+        /* Emojis caindo */
         .floaties {
             position: fixed;
             inset: 0;
@@ -60,573 +55,330 @@
             z-index: 500;
             overflow: hidden;
         }
-
         .floaty {
             position: absolute;
-            top: -60px;
-            animation: floatyFall linear infinite;
+            top: -100px;
+            animation: fall linear infinite;
+            opacity: 0.88;
+            filter: drop-shadow(0 5px 12px rgba(0,0,0,0.7));
+        }
+        @keyframes fall {
+            0% { top: -100px; opacity: 0; transform: rotate(0deg); }
+            10% { opacity: 0.9; }
+            100% { top: 110vh; opacity: 0; transform: rotate(480deg) translateX(var(--drift)); }
         }
 
-        .floaty:nth-child(1)  { left: 3%;  animation-duration: 14s; animation-delay: 0s;   font-size: 1.8em; }
-        .floaty:nth-child(2)  { left: 11%; animation-duration: 17s; animation-delay: 2s;   font-size: 1.2em; }
-        .floaty:nth-child(3)  { left: 20%; animation-duration: 13s; animation-delay: 4s;   font-size: 1.6em; }
-        .floaty:nth-child(4)  { left: 30%; animation-duration: 16s; animation-delay: 1s;   font-size: 1.3em; }
-        .floaty:nth-child(5)  { left: 40%; animation-duration: 15s; animation-delay: 3s;   font-size: 1.7em; }
-        .floaty:nth-child(6)  { left: 50%; animation-duration: 18s; animation-delay: 0.5s; font-size: 1.2em; }
-        .floaty:nth-child(7)  { left: 60%; animation-duration: 13s; animation-delay: 2.5s; font-size: 1.5em; }
-        .floaty:nth-child(8)  { left: 70%; animation-duration: 16s; animation-delay: 1.5s; font-size: 1.3em; }
-        .floaty:nth-child(9)  { left: 80%; animation-duration: 14s; animation-delay: 3.5s; font-size: 1.6em; }
-        .floaty:nth-child(10) { left: 90%; animation-duration: 17s; animation-delay: 0.8s; font-size: 1.2em; }
-        .floaty:nth-child(11) { left: 95%; animation-duration: 15s; animation-delay: 5s;   font-size: 1.4em; }
-
-        @keyframes floatyFall {
-            0%   { top: -8%; opacity: 0;   transform: rotate(0deg) translateX(0); }
-            8%   { opacity: 0.85; }
-            100% { top: 108%; opacity: 0;  transform: rotate(400deg) translateX(30px); }
-        }
-
-        /* ─── HEADER ─── */
+        /* Header */
         .header {
             position: sticky;
             top: 0;
             z-index: 100;
             padding: 1.2rem 2rem;
-            background: rgba(17,8,2,0.78);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(249,224,75,0.18);
+            background: rgba(10,14,39,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--gold);
         }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg,
-                transparent,
-                var(--egg-yellow), var(--egg-orange), var(--egg-pink),
-                var(--egg-lilac), var(--egg-mint), var(--egg-sky),
-                var(--egg-yellow), transparent
-            );
-            background-size: 300% 100%;
-            animation: rainbowShift 4s linear infinite;
-        }
-
-        @keyframes rainbowShift { 0% { background-position: 0% 0; } 100% { background-position: 300% 0; } }
-
         .header-content {
             max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
         }
-
         .logo-section { display: flex; align-items: center; gap: 14px; }
-
         .logo {
-            width: 52px; height: 52px;
+            width: 60px; height: 60px;
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, rgba(249,224,75,0.2), rgba(192,132,252,0.2));
-            border: 2px solid rgba(249,224,75,0.35);
-            box-shadow: 0 0 20px rgba(249,224,75,0.18);
+            background: linear-gradient(135deg, var(--gold), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.3rem;
+            box-shadow: 0 0 30px rgba(244,160,17,0.5);
         }
+        .company-info h1 { font-size: 1.55rem; font-weight: 800; }
+        .company-info h1 span { color: var(--gold); }
 
-        .company-info h1 { font-size: 1.35rem; font-weight: 800; color: #fff; }
-        .company-info h1 span {
-            background: linear-gradient(90deg, var(--egg-yellow), var(--egg-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
-        .company-info p { font-size: 0.82rem; color: rgba(255,255,255,0.42); margin-top: 1px; }
-
-        .header-actions { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
-
-        .easter-badge {
-            padding: 6px 14px;
-            background: linear-gradient(135deg, rgba(249,224,75,0.16), rgba(251,146,60,0.16));
-            border: 1px solid rgba(249,224,75,0.35);
-            border-radius: 20px;
-            font-size: 0.82rem;
+        .badge {
+            padding: 8px 20px;
+            border-radius: 30px;
             font-weight: 700;
-            color: var(--egg-yellow);
         }
+        .jogos-badge { background: linear-gradient(135deg, #F4A011, #E63946); color: white; }
+        .status-badge { background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #10b981; }
 
-        .status-badge {
-            padding: 6px 14px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.09);
-            border-radius: 20px;
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.58);
-            display: flex; align-items: center; gap: 6px;
-        }
-
-        .status-dot {
-            width: 7px; height: 7px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
-
-        .time-display { font-size: 0.9rem; font-weight: 700; color: var(--egg-yellow); font-variant-numeric: tabular-nums; }
-
-        /* ─── MAIN ─── */
+        /* Main */
         .main-content {
-            position: relative;
-            z-index: 1;
             max-width: 1600px;
             margin: 0 auto;
-            padding: 3rem 2rem 5rem;
+            padding: 3rem 2rem 6rem;
+            position: relative;
+            z-index: 10;
         }
-
-        .page-header { text-align: center; margin-bottom: 3rem; }
-
-        .page-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 18px;
-            background: rgba(249,224,75,0.09);
-            border: 1px solid rgba(249,224,75,0.25);
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--egg-yellow);
-            margin-bottom: 1.2rem;
-        }
-
         .page-title {
             font-family: 'Lilita One', cursive;
             font-size: 3.4rem;
-            line-height: 1.05;
-            background: linear-gradient(135deg, var(--egg-yellow) 0%, var(--egg-orange) 35%, var(--egg-pink) 65%, var(--egg-lilac) 100%);
+            text-align: center;
+            background: linear-gradient(90deg, var(--gold), #fff, var(--blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 24px rgba(249,224,75,0.2));
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.65);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
         }
 
-        .page-subtitle { color: rgba(255,255,255,0.42); font-size: 1rem; font-weight: 400; }
-
-        /* ─── MÓDULOS ─── */
+        /* Módulos */
         .modules-section {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(249,224,75,0.15);
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(244,160,17,0.25);
             border-radius: 28px;
-            padding: 2rem;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+            padding: 2.5rem;
         }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(249,224,75,0.12);
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .section-title { font-family: 'Lilita One', cursive; font-size: 1.7rem; color: #fff; }
-        .section-title span {
-            background: linear-gradient(90deg, var(--egg-yellow), var(--egg-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-badge {
-            padding: 5px 14px;
-            background: rgba(249,224,75,0.09);
-            border: 1px solid rgba(249,224,75,0.22);
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: var(--egg-yellow);
-            font-weight: 700;
-        }
-
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
-
         .module-card {
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
-            padding: 1.4rem;
+            padding: 1.6rem;
             text-decoration: none;
             color: white;
-            transition: all 0.3s cubic-bezier(0.34,1.2,0.64,1);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
-
-        .module-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            border-radius: 20px 20px 0 0;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .module-card:nth-child(1)::before  { background: linear-gradient(90deg, var(--egg-yellow), var(--egg-orange)); }
-        .module-card:nth-child(2)::before  { background: linear-gradient(90deg, var(--egg-pink), var(--egg-lilac)); }
-        .module-card:nth-child(3)::before  { background: linear-gradient(90deg, var(--egg-mint), var(--egg-sky)); }
-        .module-card:nth-child(4)::before  { background: linear-gradient(90deg, var(--egg-sky), var(--egg-mint)); }
-        .module-card:nth-child(5)::before  { background: linear-gradient(90deg, var(--egg-lilac), var(--egg-pink)); }
-        .module-card:nth-child(6)::before  { background: linear-gradient(90deg, var(--egg-orange), var(--egg-yellow)); }
-        .module-card:nth-child(7)::before  { background: linear-gradient(90deg, var(--egg-yellow), var(--egg-pink)); }
-        .module-card:nth-child(8)::before  { background: linear-gradient(90deg, var(--egg-mint), var(--egg-lilac)); }
-        .module-card:nth-child(9)::before  { background: linear-gradient(90deg, var(--egg-pink), var(--egg-sky)); }
-        .module-card:nth-child(10)::before { background: linear-gradient(90deg, var(--egg-sky), var(--egg-orange)); }
-        .module-card:nth-child(11)::before { background: linear-gradient(90deg, var(--egg-lilac), var(--egg-yellow)); }
-        .module-card:nth-child(12)::before { background: linear-gradient(90deg, var(--egg-orange), var(--egg-mint)); }
-
         .module-card:hover {
-            background: rgba(249,224,75,0.055);
-            border-color: rgba(249,224,75,0.28);
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+            transform: translateY(-8px);
+            background: rgba(244,160,17,0.08);
+            border-color: var(--gold);
         }
-
-        .module-card:hover::before { opacity: 1; }
-
-        .module-card.unavailable { opacity: 0.38; cursor: not-allowed; }
-        .module-card.unavailable:hover { transform: none; box-shadow: none; border-color: rgba(255,255,255,0.07); }
-
-        .module-header { display: flex; align-items: flex-start; gap: 1rem; }
-
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
         .module-icon {
-            width: 50px; height: 50px;
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
-
-        .module-icon.restaurante  { background: rgba(249,224,75,0.15);  border: 1px solid rgba(249,224,75,0.28);  color: var(--egg-yellow); }
-        .module-icon.acessos      { background: rgba(244,114,182,0.15); border: 1px solid rgba(244,114,182,0.28); color: var(--egg-pink); }
-        .module-icon.patrimonial  { background: rgba(52,211,153,0.15);  border: 1px solid rgba(52,211,153,0.28);  color: var(--egg-mint); }
-        .module-icon.recepcao     { background: rgba(96,165,250,0.15);  border: 1px solid rgba(96,165,250,0.28);  color: var(--egg-sky); }
-        .module-icon.portaria     { background: rgba(251,146,60,0.15);  border: 1px solid rgba(251,146,60,0.28);  color: var(--egg-orange); }
-        .module-icon.credenciais  { background: rgba(192,132,252,0.15); border: 1px solid rgba(192,132,252,0.28); color: var(--egg-lilac); }
-        .module-icon.sso          { background: rgba(249,224,75,0.15);  border: 1px solid rgba(249,224,75,0.28);  color: var(--egg-yellow); }
-        .module-icon.visitantes   { background: rgba(244,114,182,0.15); border: 1px solid rgba(244,114,182,0.28); color: var(--egg-pink); }
-        .module-icon.veiculos     { background: rgba(96,165,250,0.15);  border: 1px solid rgba(96,165,250,0.28);  color: var(--egg-sky); }
-        .module-icon.coordenadores{ background: rgba(192,132,252,0.15); border: 1px solid rgba(192,132,252,0.28); color: var(--egg-lilac); }
-
-        .module-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; color: #fff; }
-        .module-info p  { font-size: 0.83rem; color: rgba(255,255,255,0.46); line-height: 1.45; font-weight: 400; }
-
-        .module-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-        .tag {
-            padding: 3px 10px;
-            background: rgba(249,224,75,0.08);
-            border: 1px solid rgba(249,224,75,0.18);
-            border-radius: 8px;
-            font-size: 0.72rem;
-            color: rgba(249,224,75,0.75);
-            font-weight: 600;
+        .module-info h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
         }
-
-        /* ─── FOOTER ─── */
-        .footer {
-            position: relative; z-index: 1;
-            background: rgba(17,8,2,0.88);
-            border-top: 1px solid rgba(249,224,75,0.12);
-            padding: 2.5rem 2rem;
-            margin-top: 3rem;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg,
-                transparent,
-                var(--egg-yellow), var(--egg-pink), var(--egg-lilac),
-                var(--egg-mint), var(--egg-sky), var(--egg-orange),
-                transparent
-            );
-        }
-
-        .footer-content { max-width: 1600px; margin: 0 auto; }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 { font-size: 0.85rem; font-weight: 700; color: var(--egg-yellow); margin-bottom: 1rem; }
-        .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
-
-        .footer-link {
-            color: rgba(255,255,255,0.38);
-            text-decoration: none;
-            font-size: 0.82rem;
-            display: flex; align-items: center; gap: 0.5rem;
-            transition: color 0.2s;
-        }
-
-        .footer-link i { color: rgba(249,224,75,0.45); font-size: 0.75rem; }
-        .footer-link:hover { color: rgba(255,255,255,0.85); }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .footer-easter-msg {
-            font-family: 'Lilita One', cursive;
-            font-size: 1.4rem;
-            background: linear-gradient(90deg, var(--egg-yellow), var(--egg-orange), var(--egg-pink), var(--egg-lilac));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.7rem;
-        }
-
-        .footer-info { color: rgba(255,255,255,0.22); font-size: 0.78rem; }
-
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; }
-            .main-content   { padding: 2rem 1rem 4rem; }
-            .page-title     { font-size: 2.4rem; }
-            .modules-grid   { grid-template-columns: 1fr; }
-            .footer-grid    { grid-template-columns: 1fr; text-align: center; }
+        .module-info p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.45;
         }
     </style>
 </head>
 <body>
 
-    <!-- Elementos flutuantes -->
-    <div class="floaties">
-        <div class="floaty">🥚</div>
-        <div class="floaty">🐰</div>
-        <div class="floaty">🌸</div>
-        <div class="floaty">🍫</div>
-        <div class="floaty">🐣</div>
-        <div class="floaty">🌼</div>
-        <div class="floaty">🥚</div>
-        <div class="floaty">🐰</div>
-        <div class="floaty">🌷</div>
-        <div class="floaty">🍫</div>
-        <div class="floaty">🐣</div>
+  <!-- Vídeo de fundo -->
+  <div id="background-container">
+    <video id="background-video" autoplay muted playsinline></video>
+  </div>
+
+  <!-- Emojis caindo -->
+  <div class="floaties" id="float-wrap"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo">⚡</div>
+        <div class="company-info">
+          <h1>Jirau <span>Energia</span></h1>
+          <p>Sistema Integrado de Gestão Empresarial</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="badge jogos-badge">🏆 JOGOS DO TRABALHADOR 2026</div>
+        <div class="badge status-badge"><span style="color:#10b981;">●</span> Sistema Online</div>
+        <div class="time-display" id="currentTime">00:00</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">CENTRO DE GESTÃO INTEGRADO</h1>
+      <p class="page-subtitle">Força • União • Superação • Jogos do Trabalhador 2026</p>
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo-section">
-                <div class="logo">⚡</div>
-                <div class="company-info">
-                    <h1>Jirau <span>Energia</span></h1>
-                    <p>Sistema Integrado de Gestão Empresarial</p>
-                </div>
-            </div>
-            <div class="header-actions">
-                <div class="easter-badge">🐰 Páscoa!</div>
-                <div class="status-badge"><div class="status-dot"></div> Sistema Online</div>
-                <div class="time-display" id="currentTime"></div>
-            </div>
-        </div>
-    </header>
+    <section class="modules-section">
+      <div class="modules-grid">
 
-    <!-- Main -->
-    <main class="main-content">
-        <div class="page-header">
-            <div class="page-eyebrow">🥚 Páscoa — Renovação e Alegria 🌷</div>
-            <h1 class="page-title">Centro de Gestão Integrado</h1>
-            <p class="page-subtitle">Todos os módulos do sistema em um só lugar</p>
-        </div>
+        <!-- 1 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(244,160,17,0.2); color:#F4A011;"><i class="fas fa-utensils"></i></div>
+            <div class="module-info"><h3>Restaurante</h3><p>Gestão completa de cardápios e controle nutricional</p></div>
+          </div>
+        </a>
 
-        <section class="modules-section">
-            <div class="section-header">
-                <h2 class="section-title">🐣 <span>Módulos</span> Integrados</h2>
-                <div class="section-badge">🥚 12 módulos</div>
-            </div>
+        <!-- 2 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(27,152,224,0.2); color:#1B98E0;"><i class="fas fa-door-open"></i></div>
+            <div class="module-info"><h3>Acessos no Restaurante</h3><p>Monitoramento em tempo real do fluxo</p></div>
+          </div>
+        </a>
 
-            <div class="modules-grid">
+        <!-- 3 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(16,185,129,0.2); color:#10b981;"><i class="fas fa-building"></i></div>
+            <div class="module-info"><h3>Patrimonial</h3><p>Controle avançado de ativos e inventários</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon restaurante"><i class="fas fa-utensils"></i></div>
-                        <div class="module-info"><h3>Restaurante</h3><p>Gestão completa de cardápios, pedidos e controle nutricional</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Registros</span><span class="tag">Acessos</span><span class="tag">Gráficos</span></div>
-                </a>
+        <!-- 4 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(96,165,250,0.2); color:#60A5FA;"><i class="fas fa-concierge-bell"></i></div>
+            <div class="module-info"><h3>Recepção</h3><p>Central de atendimento</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon acessos"><i class="fas fa-door-open"></i></div>
-                        <div class="module-info"><h3>Acessos no Restaurante</h3><p>Monitoramento em tempo real do fluxo de entrada e saída</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Tempo Real</span><span class="tag">Controle</span></div>
-                </a>
+        <!-- 5 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(96,165,250,0.2); color:#60A5FA;"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="module-info"><h3>Recepção Rio de Janeiro</h3><p>Atendimento da unidade RJ</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon patrimonial"><i class="fas fa-building"></i></div>
-                        <div class="module-info"><h3>Patrimonial</h3><p>Controle avançado de ativos e inventários automatizados</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Ativos</span><span class="tag">Inventário</span></div>
-                </a>
+        <!-- 6 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(244,160,17,0.2); color:#F4A011;"><i class="fas fa-shield-alt"></i></div>
+            <div class="module-info"><h3>Controle de Portaria</h3><p>Controle de acesso principal</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon recepcao"><i class="fas fa-concierge-bell"></i></div>
-                        <div class="module-info"><h3>Recepção</h3><p>Central de atendimento e gestão de visitantes</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Atendimento</span><span class="tag">Visitantes</span></div>
-                </a>
+        <!-- 7 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(192,132,252,0.2); color:#C084FC;"><i class="fas fa-id-card"></i></div>
+            <div class="module-info"><h3>Gestão de Credenciais</h3><p>Controle de crachás e cartões</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon recepcao"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="module-info"><h3>Recepção Rio de Janeiro</h3><p>Atendimento e controle da unidade do Rio de Janeiro</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Rio de Janeiro</span><span class="tag">Atendimento</span></div>
-                </a>
+        <!-- 8 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(16,185,129,0.2); color:#10b981;"><i class="fas fa-hard-hat"></i></div>
+            <div class="module-info"><h3>Saúde e Segurança Ocupacional</h3><p>Controle de acessos e presença</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon portaria"><i class="fas fa-shield-alt"></i></div>
-                        <div class="module-info"><h3>Controle de Portaria</h3><p>Sistema integrado para controle de acesso principal</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Segurança</span><span class="tag">Autorização</span></div>
-                </a>
+        <!-- 9 -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(96,165,250,0.2); color:#60A5FA;"><i class="fas fa-car"></i></div>
+            <div class="module-info"><h3>Controle de Veículos</h3><p>Gestão de entrada e saída</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon credenciais"><i class="fas fa-id-card"></i></div>
-                        <div class="module-info"><h3>Gestão de Credenciais</h3><p>Controle completo de crachás e cartões de acesso</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Crachás</span><span class="tag">Permissões</span></div>
-                </a>
+        <!-- 10 -->
+        <a href="#" class="module-card">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(244,114,182,0.2); color:#F472B6;"><i class="fas fa-users"></i></div>
+            <div class="module-info"><h3>Gestão de Visitantes</h3><p>Sistema específico para cadastro de visitantes</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon sso"><i class="fas fa-hard-hat"></i></div>
-                        <div class="module-info"><h3>Saúde e Segurança Ocupacional</h3><p>Controle de acessos e pessoas presentes na usina</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Controle</span><span class="tag">Presença</span></div>
-                </a>
+        <!-- 11 - STATUS (Link adicionado) -->
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F8f05f2a5-777d-5951-5ea5-7f05ebbfd966" class="module-card" target="_blank">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(244,160,17,0.2); color:#F4A011;"><i class="fas fa-chart-line"></i></div>
+            <div class="module-info"><h3>Status</h3><p>Monitoramento e status geral do sistema</p></div>
+          </div>
+        </a>
 
-                <div class="module-card unavailable">
-                    <div class="module-header">
-                        <div class="module-icon visitantes"><i class="fas fa-users"></i></div>
-                        <div class="module-info"><h3>Gestão de Visitantes</h3><p>Sistema específico para cadastro de visitantes</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">🥚 Em breve</span></div>
-                </div>
+        <!-- 12 -->
+        <a href="coordenadores.html" class="module-card">
+          <div class="module-header">
+            <div class="module-icon" style="background:rgba(192,132,252,0.2); color:#C084FC;"><i class="fas fa-user-tie"></i></div>
+            <div class="module-info"><h3>Gerência Manutenção</h3><p>Headcount por coordenação</p></div>
+          </div>
+        </a>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon veiculos"><i class="fas fa-car"></i></div>
-                        <div class="module-info"><h3>Controle de Veículos</h3><p>Gestão de entrada e saída de veículos</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Veículos</span><span class="tag">Pátio</span></div>
-                </a>
+      </div>
+    </section>
+  </main>
 
-                <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F8f05f2a5-777d-5951-5ea5-7f05ebbfd966" class="module-card" target="_blank">
-                    <div class="module-header">
-                        <div class="module-icon patrimonial"><i class="fas fa-chart-line"></i></div>
-                        <div class="module-info"><h3>Status</h3><p>Monitoramento e status geral do sistema</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Monitoramento</span><span class="tag">Status</span></div>
-                </a>
+  <script>
+    // Relógio
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('currentTime').textContent = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
 
-                <a href="coordenadores.html" class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon coordenadores"><i class="fas fa-user-tie"></i></div>
-                        <div class="module-info"><h3>Gerência Manutenção</h3><p>Estratificação por coordenação com headcount detalhado</p></div>
-                    </div>
-                    <div class="module-tags"><span class="tag">Headcount</span><span class="tag">Próprios</span><span class="tag">Terceiros</span></div>
-                </a>
+    // Emojis caindo
+    const icons = ['⚽','🏀','🏐','🏆','🥇','🏅','🎖️','🏸','🎾','🏊','🚴','🏃','💪','🔥'];
+    const fw = document.getElementById('float-wrap');
 
-            </div>
-        </section>
-    </main>
+    for(let i = 0; i < 32; i++) {
+      const d = document.createElement('div');
+      d.className = 'floaty';
+      d.textContent = icons[Math.floor(Math.random() * icons.length)];
+      d.style.fontSize = (Math.random() * 1.8 + 1.7) + 'em';
+      d.style.left = Math.random() * 100 + '%';
+      d.style.animationDuration = (Math.random() * 9 + 13) + 's';
+      d.style.animationDelay = '-' + (Math.random() * 25) + 's';
+      fw.appendChild(d);
+    }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Jirau Energia 🐣</h4>
-                    <div class="footer-links">
-                        <a href="mailto:cos.monitoramento@jirauenergia.com.br" class="footer-link"><i class="fas fa-envelope"></i> COS Monitoramento</a>
-                        <a href="mailto:recepcao.portaria@jirauenergia.com.br" class="footer-link"><i class="fas fa-envelope"></i> Recepção</a>
-                        <a href="tel:+5569996091260" class="footer-link"><i class="fas fa-phone"></i> (69) 99609-1260</a>
-                        <a href="tel:+5569999421260" class="footer-link"><i class="fas fa-phone"></i> (69) 99942-1260</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Recursos</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link"><i class="fas fa-book"></i> Documentação</a>
-                        <a href="#" class="footer-link"><i class="fas fa-graduation-cap"></i> Treinamento</a>
-                        <a href="#" class="footer-link"><i class="fas fa-video"></i> Webinars</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Suporte</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link"><i class="fas fa-life-ring"></i> Ajuda</a>
-                        <a href="#" class="footer-link"><i class="fas fa-headset"></i> Suporte 24/7</a>
-                        <a href="#" class="footer-link"><i class="fas fa-heart-pulse"></i> Status</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Empresa</h4>
-                    <div class="footer-links">
-                        <a href="#" class="footer-link"><i class="fas fa-building"></i> Sobre</a>
-                        <a href="#" class="footer-link"><i class="fas fa-newspaper"></i> Blog</a>
-                        <a href="#" class="footer-link"><i class="fas fa-shield-alt"></i> Segurança</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-easter-msg">🐰 Feliz Páscoa a todos da Jirau Energia! 🍫🥚🌷</p>
-                <p class="footer-info">
-                    © 2025 Jirau Energia — Versão 4.2.1 | Desenvolvido por Andeilsson Amaral |
-                    Atualizado: <span id="lastUpdate"></span>
-                </p>
-            </div>
-        </div>
-    </footer>
+    // Vídeos de fundo
+    const backgroundVideos = [
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5e60158c58.mp4",
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5db9e98937.mp4",
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5dd6de2f38.mp4",
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5dfd112c59.mp4",
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5e0acd1bd0.mp4",
+      "https://darksalmon-grasshopper-449102.hostingersite.com/uploads/videos/vid_69d5e2519693c.mp4"
+    ];
 
-    <script>
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('currentTime').textContent = now.toLocaleTimeString('pt-BR');
-            document.getElementById('lastUpdate').textContent = now.toLocaleString('pt-BR');
-        }
-        updateTime();
-        setInterval(updateTime, 1000);
-    </script>
+    let currentBgIndex = 0;
+    const bgVideo = document.getElementById('background-video');
+
+    function playNextBackground() {
+      bgVideo.style.opacity = 0;
+      setTimeout(() => {
+        bgVideo.src = backgroundVideos[currentBgIndex];
+        bgVideo.load();
+        bgVideo.play().catch(() => {});
+        bgVideo.style.opacity = 1;
+        currentBgIndex = (currentBgIndex + 1) % backgroundVideos.length;
+      }, 1300);
+    }
+
+    bgVideo.addEventListener('ended', playNextBackground);
+    bgVideo.src = backgroundVideos[0];
+    bgVideo.play().catch(() => {});
+  </script>
 </body>
 </html>
-
-
-
