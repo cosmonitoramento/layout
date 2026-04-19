@@ -8,21 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ac:      #00c9b1;
+            --ac: #00c9b1;
             --ac-dark: #009e8c;
             --ac-glow: rgba(0,201,177,.3);
-            --ac-dim:  rgba(0,201,177,.13);
-            --gold:    #f6c549;
-
-            --navy:  #07132a;
+            --ac-dim: rgba(0,201,177,.13);
+            --gold: #f6c549;
+            --navy: #07132a;
             --navy2: #0e2040;
             --navy3: #152e58;
-            --page:  #f0f5fb;
-            --card:  #ffffff;
-            --txt:   #1a2535;
+            --page: #f0f5fb;
+            --card: #ffffff;
+            --txt: #1a2535;
             --muted: #64748b;
             --border:#e2eaf5;
-
             --r-xl: 22px;
             --r-lg: 16px;
             --r-md: 10px;
@@ -33,7 +31,6 @@
         }
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Sora',sans-serif; background:var(--page); color:var(--txt); min-height:100vh; overflow-x:hidden; }
-
         /* ══ HEADER ══ */
         .hdr { position:sticky; top:0; z-index:300; background:var(--navy); box-shadow:0 2px 28px rgba(0,0,0,.4); }
         .hdr-stripe { height:3px; background:linear-gradient(90deg,transparent,var(--ac),var(--gold),var(--ac),transparent); }
@@ -41,7 +38,7 @@
         .hdr-brand { display:flex; align-items:center; gap:.9rem; }
         .hdr-logo { width:46px; height:46px; border-radius:13px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:#fff; box-shadow:0 4px 18px var(--ac-glow); flex-shrink:0; }
         .hdr-name h1 { font-size:1.25rem; font-weight:800; color:#fff; letter-spacing:-.3px; }
-        .hdr-name p  { font-size:.75rem; color:rgba(255,255,255,.5); margin-top:1px; }
+        .hdr-name p { font-size:.75rem; color:rgba(255,255,255,.5); margin-top:1px; }
         .hdr-nav { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
         .live-pill { display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.4); border-radius:999px; padding:6px 14px; font-size:.75rem; font-weight:700; color:#10b981; }
         .live-dot { width:7px; height:7px; border-radius:50%; background:#10b981; animation:blink 1.4s ease-in-out infinite; }
@@ -49,7 +46,6 @@
         .hdr-btn { display:inline-flex; align-items:center; gap:7px; padding:7px 16px; border-radius:999px; font-size:.8rem; font-weight:700; text-decoration:none; color:rgba(255,255,255,.85); background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); transition:all .22s; white-space:nowrap; }
         .hdr-btn i { color:var(--ac); }
         .hdr-btn:hover { background:rgba(0,201,177,.18); border-color:rgba(0,201,177,.45); color:#fff; }
-
         /* ══ HERO COM FUNDO IMPACTANTE ══ */
         .hero {
             position: relative;
@@ -57,7 +53,6 @@
             overflow: hidden;
             padding: 0;
         }
-
         /* camadas de fundo */
         .hero-bg {
             position: absolute;
@@ -68,7 +63,6 @@
                 radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0,120,100,.15) 0%, transparent 55%),
                 linear-gradient(160deg, #070f22 0%, #0d1f3e 40%, #0a2a3a 100%);
         }
-
         /* grade de linhas finas — efeito circuito */
         .hero-grid {
             position: absolute;
@@ -79,7 +73,6 @@
             background-size: 52px 52px;
             pointer-events: none;
         }
-
         /* partículas decorativas */
         .hero-orb {
             position: absolute;
@@ -87,11 +80,10 @@
             pointer-events: none;
             animation: orbFloat ease-in-out infinite;
         }
-        .orb1 { width:380px; height:380px; top:-120px; right:-80px;  background:radial-gradient(circle, rgba(0,201,177,.2) 0%, transparent 65%); animation-duration:8s; }
-        .orb2 { width:260px; height:260px; bottom:-60px; left:-60px;  background:radial-gradient(circle, rgba(246,197,73,.12) 0%, transparent 65%); animation-duration:11s; animation-delay:-3s; }
-        .orb3 { width:180px; height:180px; top:30%;    right:25%;   background:radial-gradient(circle, rgba(0,201,177,.1) 0%, transparent 65%); animation-duration:14s; animation-delay:-6s; }
+        .orb1 { width:380px; height:380px; top:-120px; right:-80px; background:radial-gradient(circle, rgba(0,201,177,.2) 0%, transparent 65%); animation-duration:8s; }
+        .orb2 { width:260px; height:260px; bottom:-60px; left:-60px; background:radial-gradient(circle, rgba(246,197,73,.12) 0%, transparent 65%); animation-duration:11s; animation-delay:-3s; }
+        .orb3 { width:180px; height:180px; top:30%; right:25%; background:radial-gradient(circle, rgba(0,201,177,.1) 0%, transparent 65%); animation-duration:14s; animation-delay:-6s; }
         @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-18px) scale(1.04)} }
-
         /* linha de energia pulsando no topo do hero */
         .hero-energy {
             position: absolute;
@@ -101,7 +93,6 @@
             animation: energyPulse 3s ease-in-out infinite;
         }
         @keyframes energyPulse { 0%,100%{opacity:.6} 50%{opacity:1} }
-
         /* onda inferior */
         .hero::after {
             content: '';
@@ -112,14 +103,12 @@
             clip-path: ellipse(58% 100% at 50% 100%);
             z-index: 2;
         }
-
         /* breadcrumb */
         .breadcrumb { max-width:1440px; margin:0 auto; padding:1.4rem 2rem 0; display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.4); position:relative; z-index:5; }
         .breadcrumb a { color:rgba(255,255,255,.4); text-decoration:none; transition:color .2s; }
         .breadcrumb a:hover { color:var(--ac); }
         .breadcrumb .sep { color:rgba(255,255,255,.2); }
         .breadcrumb .now { color:var(--ac); font-weight:700; }
-
         /* conteúdo do hero */
         .hero-inner { max-width:1440px; margin:0 auto; padding:2rem 2rem 7rem; position:relative; z-index:3; display:flex; align-items:center; gap:2.2rem; flex-wrap:wrap; }
         .hero-ico {
@@ -134,34 +123,29 @@
             animation: floatIco 4s ease-in-out infinite;
         }
         @keyframes floatIco { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
-
         .hero-txt { flex:1; min-width:260px; }
         .hero-tag { display:inline-flex; align-items:center; gap:.45rem; background:rgba(0,201,177,.13); border:1px solid rgba(0,201,177,.35); color:var(--ac); font-size:.7rem; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; padding:4px 13px; border-radius:999px; margin-bottom:.9rem; }
         .hero-h1 { font-size:clamp(2rem,4.5vw,3rem); font-weight:900; color:#fff; letter-spacing:-.6px; line-height:1.1; margin-bottom:.65rem; }
         .hero-h1 em { color:var(--ac); font-style:normal; }
         .hero-sub { font-size:.95rem; color:rgba(255,255,255,.5); line-height:1.65; max-width:540px; }
-
         /* ══ MAIN ══ */
         .wrap { max-width:1440px; margin:-4rem auto 0; padding:0 2rem 6rem; position:relative; z-index:10; }
-
         /* ══ STATS ══ */
         .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.1rem; margin-bottom:2.5rem; animation:up .5s ease both; }
         @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
         .stat { background:var(--card); border:1.5px solid var(--border); border-radius:var(--r-lg); padding:1.2rem 1.4rem; box-shadow:var(--sh-xs); display:flex; align-items:center; gap:.85rem; transition:all .25s; }
         .stat:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--ac); }
         .stat-ic { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-        .ic-ac     { background:var(--ac-dim); color:var(--ac); }
+        .ic-ac { background:var(--ac-dim); color:var(--ac); }
         .ic-violet { background:rgba(124,58,237,.1); color:#7c3aed; }
-        .ic-sky    { background:rgba(14,165,233,.1); color:#0ea5e9; }
-        .ic-amber  { background:rgba(245,158,11,.1); color:#f59e0b; }
+        .ic-sky { background:rgba(14,165,233,.1); color:#0ea5e9; }
+        .ic-amber { background:rgba(245,158,11,.1); color:#f59e0b; }
         .stat-val { font-size:1.6rem; font-weight:800; color:var(--navy); font-family:'JetBrains Mono',monospace; line-height:1; }
         .stat-lbl { font-size:.73rem; color:var(--muted); font-weight:500; margin-top:3px; }
-
         /* ══ SECTION HEADER ══ */
         .sec-hdr { display:flex; align-items:center; gap:.55rem; font-size:.68rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; }
         .sec-hdr i { color:var(--ac); font-size:.75rem; }
         .sec-hdr::after { content:''; flex:1; height:1px; background:var(--border); }
-
         /* ══ PAINEL DESTAQUE ══ */
         .painel-wrap { margin-bottom:2rem; animation:up .5s ease .08s both; }
         .painel {
@@ -176,21 +160,19 @@
             transition:all .32s;
         }
         .painel::before { content:''; position:absolute; top:-100px; right:-100px; width:300px; height:300px; background:radial-gradient(circle,rgba(0,201,177,.22) 0%,transparent 70%); pointer-events:none; }
-        .painel::after  { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--ac),var(--gold),var(--ac)); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+        .painel::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--ac),var(--gold),var(--ac)); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
         .painel:hover { transform:translateY(-5px); box-shadow:0 28px 68px rgba(0,0,0,.28), 0 0 0 1.5px rgba(0,201,177,.4); }
         .painel:hover::after { transform:scaleX(1); }
         .painel-ic { width:74px; height:74px; border-radius:20px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:2rem; color:#fff; flex-shrink:0; box-shadow:0 8px 28px var(--ac-glow); }
         .painel-body { flex:1; min-width:0; }
         .painel-tag { display:inline-flex; align-items:center; gap:.4rem; background:rgba(0,201,177,.16); border:1px solid rgba(0,201,177,.35); color:var(--ac); font-size:.67rem; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin-bottom:.5rem; }
         .painel-title { font-size:1.45rem; font-weight:800; color:#fff; letter-spacing:-.3px; margin-bottom:.3rem; }
-        .painel-desc  { font-size:.86rem; color:rgba(255,255,255,.5); line-height:1.55; }
+        .painel-desc { font-size:.86rem; color:rgba(255,255,255,.5); line-height:1.55; }
         .painel-arr { width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.4); flex-shrink:0; transition:all .25s; }
         .painel:hover .painel-arr { background:var(--ac); border-color:var(--ac); color:#fff; }
-
         /* ══ CARDS GRID ══ */
         .grid-section { animation:up .5s ease .15s both; margin-bottom:2.5rem; }
         .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.3rem; }
-
         .ccard {
             background:var(--card); border:1.5px solid var(--border);
             border-radius:var(--r-xl); padding:1.8rem;
@@ -207,7 +189,6 @@
         }
         .ccard:hover { transform:translateY(-8px); box-shadow:var(--sh-md), 0 0 0 1.5px var(--cc,var(--ac)); border-color:var(--cc,var(--ac)); }
         .ccard:hover::before { transform:scaleX(1); }
-
         .ccard-top { display:flex; align-items:flex-start; gap:1.1rem; margin-bottom:1.3rem; }
         .ccard-ico { width:60px; height:60px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.65rem; color:#fff; flex-shrink:0; transition:transform .28s; }
         .ccard:hover .ccard-ico { transform:scale(1.1) rotate(-6deg); }
@@ -221,7 +202,6 @@
         .ccard-foot { display:flex; justify-content:flex-end; margin-top:1.2rem; }
         .ccard-arr { width:34px; height:34px; border-radius:10px; background:#f0f5fb; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.8rem; transition:all .25s; }
         .ccard:hover .ccard-arr { background:var(--cc,var(--ac)); color:#fff; transform:translateX(3px); }
-
         /* ══ INFO BOX ══ */
         .info-box { background:linear-gradient(135deg,#e6fff9 0%,#edfbff 100%); border-radius:var(--r-lg); border-left:4px solid var(--ac); padding:1.7rem 2rem; animation:up .5s ease .22s both; }
         .info-box h4 { display:flex; align-items:center; gap:.5rem; font-size:.95rem; font-weight:800; color:var(--navy2); margin-bottom:.85rem; }
@@ -229,6 +209,14 @@
         .info-box ul { list-style:none; }
         .info-box li { padding:.3rem 0 .3rem 1.5rem; position:relative; font-size:.87rem; color:var(--muted); line-height:1.55; }
         .info-box li::before { content:'✓'; position:absolute; left:0; color:var(--ac); font-weight:900; }
+
+        /* ADIÇÃO: CURSOR POINTER NOS BOTÕES E CARDS QUE POSSUEM LINKS */
+        .hdr-btn,
+        .painel,
+        .ccard,
+        .breadcrumb a {
+            cursor: pointer !important;
+        }
 
         /* ══ RESPONSIVE ══ */
         @media (max-width:768px) {
@@ -244,7 +232,6 @@
     </style>
 </head>
 <body>
-
 <!-- HEADER -->
 <header class="hdr">
     <div class="hdr-stripe"></div>
@@ -259,11 +246,10 @@
         <nav class="hdr-nav">
             <div class="live-pill"><div class="live-dot"></div>Ao Vivo</div>
             <a href="Gerencia.html" class="hdr-btn"><i class="fas fa-arrow-left"></i>Gerências</a>
-            <a href="index.html"    class="hdr-btn"><i class="fas fa-home"></i>Home</a>
+            <a href="index.html" class="hdr-btn"><i class="fas fa-home"></i>Home</a>
         </nav>
     </div>
 </header>
-
 <!-- HERO -->
 <section class="hero">
     <div class="hero-bg"></div>
@@ -272,7 +258,6 @@
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-orb orb3"></div>
-
     <nav class="breadcrumb">
         <a href="index.html"><i class="fas fa-home" style="font-size:.7rem;"></i></a>
         <span class="sep">›</span>
@@ -280,7 +265,6 @@
         <span class="sep">›</span>
         <span class="now">Manutenção</span>
     </nav>
-
     <div class="hero-inner">
         <div class="hero-ico"><i class="fas fa-tools"></i></div>
         <div class="hero-txt">
@@ -293,10 +277,8 @@
         </div>
     </div>
 </section>
-
 <!-- MAIN -->
 <main class="wrap">
-
     <!-- STATS -->
     <div class="stats">
         <div class="stat">
@@ -316,7 +298,6 @@
             <div><div class="stat-val">Multi</div><div class="stat-lbl">Dispositivos</div></div>
         </div>
     </div>
-
     <!-- PAINEL DESTAQUE -->
     <div class="painel-wrap">
         <div class="sec-hdr"><i class="fas fa-star"></i>Painel Consolidado</div>
@@ -334,12 +315,10 @@
             <div class="painel-arr"><i class="fas fa-arrow-right"></i></div>
         </a>
     </div>
-
     <!-- CARDS DE COORDENAÇÃO -->
     <div class="grid-section">
         <div class="sec-hdr"><i class="fas fa-th-large"></i>Coordenações Individuais</div>
         <div class="cards-grid">
-
             <!-- Mecânica -->
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511"
                class="ccard" target="_blank" style="--cc:#f56565;">
@@ -360,7 +339,6 @@
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
-
             <!-- Elétrica -->
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60"
                class="ccard" target="_blank" style="--cc:#ed8936;">
@@ -381,7 +359,6 @@
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
-
             <!-- Civil e Segurança -->
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca"
                class="ccard" target="_blank" style="--cc:#4299e1;">
@@ -402,7 +379,6 @@
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
-
             <!-- Sistema Elétrica -->
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c"
                class="ccard" target="_blank" style="--cc:#9f7aea;">
@@ -423,10 +399,8 @@
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
-
         </div>
     </div>
-
     <!-- INFO BOX -->
     <div class="info-box">
         <h4><i class="fas fa-info-circle"></i>Informações Disponíveis nos Painéis</h4>
@@ -437,7 +411,6 @@
             <li>Histórico e estatísticas detalhadas de cada área</li>
         </ul>
     </div>
-
 </main>
 </body>
 </html>
