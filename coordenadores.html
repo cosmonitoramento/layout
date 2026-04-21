@@ -3,346 +3,767 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Manutenção — Jirau Energia</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Coordenações de Manutenção - Jirau Energia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ac: #00c9b1;
-            --ac-dark: #009e8c;
-            --ac-glow: rgba(0,201,177,.3);
-            --ac-dim: rgba(0,201,177,.13);
-            --gold: #f6c549;
-            --navy: #07132a;
-            --navy2: #0e2040;
-            --navy3: #152e58;
-            --page: #f0f5fb;
-            --card: #ffffff;
-            --txt: #1a2535;
-            --muted: #64748b;
-            --border:#e2eaf5;
-            --r-xl: 22px;
-            --r-lg: 16px;
-            --r-md: 10px;
-            --sh-xs: 0 2px 12px rgba(0,0,0,.07);
-            --sh-sm: 0 4px 22px rgba(0,0,0,.1);
-            --sh-md: 0 10px 38px rgba(0,0,0,.14);
-            --sh-lg: 0 22px 60px rgba(0,0,0,.2);
+            --navy:      #0f2440;
+            --navy-mid:  #1a3558;
+            --navy-light:#24497a;
+            --teal:      #00c9b1;
+            --teal-dim:  rgba(0,201,177,0.15);
+            --teal-glow: rgba(0,201,177,0.35);
+            --gold:      #f6c549;
+            --white:     #ffffff;
+            --slate:     #94a3b8;
+            --card-bg:   #ffffff;
+            --page-bg:   #f0f4f9;
+            --text:      #1e293b;
+            --text-soft: #64748b;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --shadow-sm: 0 2px 12px rgba(0,0,0,0.07);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 16px 50px rgba(0,0,0,0.18);
         }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Sora',sans-serif; background:var(--page); color:var(--txt); min-height:100vh; overflow-x:hidden; }
 
-        /* HEADER */
-        .hdr { position:sticky; top:0; z-index:300; background:var(--navy); box-shadow:0 2px 28px rgba(0,0,0,.4); }
-        .hdr-stripe { height:3px; background:linear-gradient(90deg,transparent,var(--ac),var(--gold),var(--ac),transparent); }
-        .hdr-inner { max-width:1440px; margin:0 auto; padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-        .hdr-brand { display:flex; align-items:center; gap:.9rem; }
-        .hdr-logo { width:46px; height:46px; border-radius:13px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:#fff; box-shadow:0 4px 18px var(--ac-glow); flex-shrink:0; }
-        .hdr-name h1 { font-size:1.25rem; font-weight:800; color:#fff; letter-spacing:-.3px; }
-        .hdr-name p { font-size:.75rem; color:rgba(255,255,255,.5); margin-top:1px; }
-        .hdr-nav { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
-        .live-pill { display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.4); border-radius:999px; padding:6px 14px; font-size:.75rem; font-weight:700; color:#10b981; }
-        .live-dot { width:7px; height:7px; border-radius:50%; background:#10b981; animation:blink 1.4s ease-in-out infinite; }
-        @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)} }
-        .hdr-btn { display:inline-flex; align-items:center; gap:7px; padding:7px 16px; border-radius:999px; font-size:.8rem; font-weight:700; text-decoration:none; color:rgba(255,255,255,.85); background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); transition:all .22s; white-space:nowrap; cursor:pointer; }
-        .hdr-btn i { color:var(--ac); }
-        .hdr-btn:hover { background:rgba(0,201,177,.18); border-color:rgba(0,201,177,.45); color:#fff; }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
-        /* HERO */
-        .hero { position:relative; background:var(--navy); overflow:hidden; padding:0; }
-        .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0,201,177,.18) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 10% 80%, rgba(246,197,73,.1) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0,120,100,.15) 0%, transparent 55%), linear-gradient(160deg, #070f22 0%, #0d1f3e 40%, #0a2a3a 100%); }
-        .hero-grid { position:absolute; inset:0; background-image: linear-gradient(rgba(0,201,177,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,201,177,.06) 1px, transparent 1px); background-size:52px 52px; pointer-events:none; }
-        .hero-orb { position:absolute; border-radius:50%; pointer-events:none; animation:orbFloat ease-in-out infinite; }
-        .orb1 { width:380px; height:380px; top:-120px; right:-80px; background:radial-gradient(circle,rgba(0,201,177,.2) 0%,transparent 65%); animation-duration:8s; }
-        .orb2 { width:260px; height:260px; bottom:-60px; left:-60px; background:radial-gradient(circle,rgba(246,197,73,.12) 0%,transparent 65%); animation-duration:11s; animation-delay:-3s; }
-        .orb3 { width:180px; height:180px; top:30%; right:25%; background:radial-gradient(circle,rgba(0,201,177,.1) 0%,transparent 65%); animation-duration:14s; animation-delay:-6s; }
-        @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-18px) scale(1.04)} }
-        .hero-energy { position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--ac),var(--gold),var(--ac),transparent); animation:energyPulse 3s ease-in-out infinite; }
-        @keyframes energyPulse { 0%,100%{opacity:.6} 50%{opacity:1} }
-        .hero::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:75px; background:var(--page); clip-path:ellipse(58% 100% at 50% 100%); z-index:2; }
-
-        .breadcrumb { max-width:1440px; margin:0 auto; padding:1.4rem 2rem 0; display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.4); position:relative; z-index:5; }
-        .breadcrumb a { color:rgba(255,255,255,.4); text-decoration:none; transition:color .2s; cursor:pointer; }
-        .breadcrumb a:hover { color:var(--ac); }
-        .breadcrumb .sep { color:rgba(255,255,255,.2); }
-        .breadcrumb .now { color:var(--ac); font-weight:700; }
-
-        .hero-inner { max-width:1440px; margin:0 auto; padding:2rem 2rem 7rem; position:relative; z-index:3; display:flex; align-items:center; gap:2.2rem; flex-wrap:wrap; }
-        .hero-ico { width:96px; height:96px; border-radius:26px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:2.6rem; color:#fff; box-shadow:0 0 0 8px rgba(0,201,177,.12), 0 14px 44px var(--ac-glow); flex-shrink:0; animation:floatIco 4s ease-in-out infinite; }
-        @keyframes floatIco { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
-        .hero-txt { flex:1; min-width:260px; }
-        .hero-tag { display:inline-flex; align-items:center; gap:.45rem; background:rgba(0,201,177,.13); border:1px solid rgba(0,201,177,.35); color:var(--ac); font-size:.7rem; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; padding:4px 13px; border-radius:999px; margin-bottom:.9rem; }
-        .hero-h1 { font-size:clamp(2rem,4.5vw,3rem); font-weight:900; color:#fff; letter-spacing:-.6px; line-height:1.1; margin-bottom:.65rem; }
-        .hero-h1 em { color:var(--ac); font-style:normal; }
-        .hero-sub { font-size:.95rem; color:rgba(255,255,255,.5); line-height:1.65; max-width:540px; }
-
-        /* MAIN */
-        .wrap { max-width:1440px; margin:-4rem auto 0; padding:0 2rem 6rem; position:relative; z-index:10; }
-
-        /* STATS */
-        .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.1rem; margin-bottom:2.5rem; animation:up .5s ease both; }
-        @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
-        .stat { background:var(--card); border:1.5px solid var(--border); border-radius:var(--r-lg); padding:1.2rem 1.4rem; box-shadow:var(--sh-xs); display:flex; align-items:center; gap:.85rem; transition:all .25s; }
-        .stat:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--ac); }
-        .stat-ic { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-        .ic-ac { background:var(--ac-dim); color:var(--ac); }
-        .ic-violet { background:rgba(124,58,237,.1); color:#7c3aed; }
-        .ic-sky { background:rgba(14,165,233,.1); color:#0ea5e9; }
-        .ic-amber { background:rgba(245,158,11,.1); color:#f59e0b; }
-        .stat-val { font-size:1.6rem; font-weight:800; color:var(--navy); font-family:'JetBrains Mono',monospace; line-height:1; }
-        .stat-lbl { font-size:.73rem; color:var(--muted); font-weight:500; margin-top:3px; }
-
-        /* SECTION HEADER */
-        .sec-hdr { display:flex; align-items:center; gap:.55rem; font-size:.68rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; }
-        .sec-hdr i { color:var(--ac); font-size:.75rem; }
-        .sec-hdr::after { content:''; flex:1; height:1px; background:var(--border); }
-
-        /* PAINEL DESTAQUE */
-        .painel-wrap { margin-bottom:2rem; animation:up .5s ease .08s both; }
-        .painel {
-            display:flex; align-items:center; gap:2rem;
-            background:linear-gradient(145deg,var(--navy) 0%,var(--navy2) 50%,var(--navy3) 100%);
-            border-radius:var(--r-xl); padding:2rem 2.4rem;
-            text-decoration:none; color:#fff;
-            border:1px solid rgba(0,201,177,.22);
-            box-shadow:var(--sh-lg), inset 0 1px 0 rgba(255,255,255,.04);
-            position:relative; overflow:hidden; transition:all .32s;
-            cursor: pointer;
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--page-bg);
+            color: var(--text);
+            overflow-x: hidden;
         }
-        .painel:hover { transform:translateY(-5px); box-shadow:0 28px 68px rgba(0,0,0,.28), 0 0 0 1.5px rgba(0,201,177,.4); }
 
-        /* CARDS */
-        .grid-section { animation:up .5s ease .15s both; margin-bottom:2.5rem; }
-        .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.3rem; }
-        .ccard {
-            background:var(--card); border:1.5px solid var(--border);
-            border-radius:var(--r-xl); padding:1.8rem;
-            text-decoration:none; color:inherit;
-            display:block; position:relative; overflow:hidden;
-            box-shadow:var(--sh-xs); transition:all .28s ease;
-            cursor: pointer;
+        /* ─── HEADER ─── */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
+            padding: 1.6rem 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .ccard:hover { transform:translateY(-8px); box-shadow:var(--sh-md), 0 0 0 1.5px var(--cc,var(--ac)); border-color:var(--cc,var(--ac)); }
 
-        /* resto do CSS dos cards permanece igual ao que você tinha */
-        .ccard::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--cc,var(--ac)); border-radius:var(--r-xl) var(--r-xl) 0 0; transform:scaleX(0); transform-origin:left; transition:transform .32s cubic-bezier(.4,0,.2,1); }
-        .ccard:hover::before { transform:scaleX(1); }
-        .ccard-top { display:flex; align-items:flex-start; gap:1.1rem; margin-bottom:1.3rem; }
-        .ccard-ico { width:60px; height:60px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.65rem; color:#fff; flex-shrink:0; transition:transform .28s; }
-        .ccard:hover .ccard-ico { transform:scale(1.1) rotate(-6deg); }
-        .ccard-info h3 { font-size:1.05rem; font-weight:800; color:var(--navy); line-height:1.3; margin-bottom:.45rem; }
-        .ccard-coord { display:flex; align-items:center; gap:.4rem; font-size:.8rem; color:var(--muted); }
-        .ccard-coord i { color:var(--cc,var(--ac)); font-size:.72rem; }
-        .ccard-sep { height:1px; background:var(--border); margin:1.1rem 0; }
-        .ccard-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-        .ctag { padding:4px 11px; background:#f0f5fb; border-radius:8px; font-size:.71rem; color:var(--muted); font-weight:700; transition:all .22s; }
-        .ccard:hover .ctag { background:color-mix(in srgb,var(--cc,var(--ac)) 12%,transparent); color:color-mix(in srgb,var(--cc,var(--ac)) 80%,#000); }
-        .ccard-foot { display:flex; justify-content:flex-end; margin-top:1.2rem; }
-        .ccard-arr { width:34px; height:34px; border-radius:10px; background:#f0f5fb; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.8rem; transition:all .25s; }
-        .ccard:hover .ccard-arr { background:var(--cc,var(--ac)); color:#fff; transform:translateX(3px); }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal), var(--gold), var(--teal), transparent);
+        }
 
-        /* INFO BOX */
-        .info-box { background:linear-gradient(135deg,#e6fff9 0%,#edfbff 100%); border-radius:var(--r-lg); border-left:4px solid var(--ac); padding:1.7rem 2rem; animation:up .5s ease .22s both; }
-        .info-box h4 { display:flex; align-items:center; gap:.5rem; font-size:.95rem; font-weight:800; color:var(--navy2); margin-bottom:.85rem; }
-        .info-box h4 i { color:var(--ac); }
-        .info-box ul { list-style:none; }
-        .info-box li { padding:.3rem 0 .3rem 1.5rem; position:relative; font-size:.87rem; color:var(--muted); line-height:1.55; }
-        .info-box li::before { content:'✓'; position:absolute; left:0; color:var(--ac); font-weight:900; }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
 
-        @media (max-width:768px) {
-            .hero-inner { padding:2rem 1.2rem 6.5rem; }
-            .painel { flex-direction:column; text-align:center; gap:1.2rem; }
-            .painel-arr { display:none; }
-            .cards-grid { grid-template-columns:1fr; }
-            .stats { grid-template-columns:repeat(2,1fr); }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, var(--teal), #00a896);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem;
+            box-shadow: 0 4px 16px var(--teal-glow);
+        }
+
+        .company-info h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .company-info p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            font-weight: 400;
+            letter-spacing: 0.4px;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+            letter-spacing: 0.2px;
+        }
+
+        .back-button i { color: var(--teal); transition: color 0.25s; }
+
+        .back-button:hover {
+            background: rgba(0,201,177,0.18);
+            border-color: rgba(0,201,177,0.4);
+            transform: translateY(-1px);
+        }
+
+        .back-button:hover i { color: white; }
+
+        /* ─── MAIN ─── */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .page-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--teal-dim);
+            color: var(--teal);
+            border: 1px solid rgba(0,201,177,0.3);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--text-soft);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ─── VISÃO GERAL CARD (DESTAQUE) ─── */
+        .visao-geral-wrapper {
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.6s ease 0.1s both;
+        }
+
+        .visao-geral-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.9rem;
+        }
+
+        .visao-geral-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0,201,177,0.3), transparent);
+        }
+
+        .visao-geral-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1d4570 100%);
+            border-radius: var(--radius-lg);
+            padding: 2.2rem 2.5rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.06);
+            border: 1px solid rgba(0,201,177,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .visao-geral-card::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, rgba(0,201,177,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .visao-geral-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .visao-geral-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,201,177,0.4);
+        }
+
+        .visao-geral-card:hover::after { opacity: 1; }
+
+        .vg-icon {
+            width: 80px; height: 80px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--teal), #00a896);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px var(--teal-glow);
+        }
+
+        .vg-body { flex: 1; }
+
+        .vg-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(0,201,177,0.18);
+            border: 1px solid rgba(0,201,177,0.35);
+            color: var(--teal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 0.6rem;
+        }
+
+        .vg-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .vg-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .vg-arrow {
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.5);
+            flex-shrink: 0;
+            transition: all 0.25s;
+        }
+
+        .visao-geral-card:hover .vg-arrow {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: white;
+        }
+
+        /* ─── STATS ─── */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.6s ease 0.2s both;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 1.4rem 1.6rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-icon {
+            width: 46px; height: 46px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .stat-icon.primary { background: linear-gradient(135deg,#667eea,#764ba2); color:white; }
+        .stat-icon.success { background: linear-gradient(135deg,#00c9b1,#00a896); color:white; }
+        .stat-icon.warning { background: linear-gradient(135deg,#f6c549,#e0a800); color:white; }
+        .stat-icon.info    { background: linear-gradient(135deg,#4299e1,#3182ce); color:white; }
+
+        .stat-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* ─── SECTION LABEL ─── */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            margin-bottom: 1.2rem;
+            animation: fadeUp 0.6s ease 0.3s both;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, #e2e8f0, transparent);
+        }
+
+        /* ─── COORDENAÇÕES GRID ─── */
+        .coordenacoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            animation: fadeUp 0.6s ease 0.35s both;
+        }
+
+        .coordenacao-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coordenacao-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .coordenacao-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .coordenacao-card:hover::before { opacity: 1; }
+
+        /* Color accents per card */
+        .card-mecanica::before  { background: linear-gradient(90deg, #f56565, #e53e3e); }
+        .card-eletrica::before  { background: linear-gradient(90deg, #ed8936, #dd6b20); }
+        .card-civil::before     { background: linear-gradient(90deg, #4299e1, #3182ce); }
+        .card-sistema::before   { background: linear-gradient(90deg, #9f7aea, #805ad5); }
+
+        .card-mecanica:hover  { border-color: #fca5a5; }
+        .card-eletrica:hover  { border-color: #fbd38d; }
+        .card-civil:hover     { border-color: #90cdf4; }
+        .card-sistema:hover   { border-color: #c4b5fd; }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .card-icon {
+            width: 60px; height: 60px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.7rem;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .icon-mecanica    { background: linear-gradient(135deg,#f56565,#e53e3e); box-shadow: 0 6px 18px rgba(245,101,101,0.3); }
+        .icon-eletrica    { background: linear-gradient(135deg,#ed8936,#dd6b20); box-shadow: 0 6px 18px rgba(237,137,54,0.3); }
+        .icon-civil       { background: linear-gradient(135deg,#4299e1,#3182ce); box-shadow: 0 6px 18px rgba(66,153,225,0.3); }
+        .icon-planejamento{ background: linear-gradient(135deg,#9f7aea,#805ad5); box-shadow: 0 6px 18px rgba(159,122,234,0.3); }
+
+        .card-info h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .coordenador {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--text-soft);
+            font-size: 0.85rem;
+        }
+
+        .coordenador i { color: var(--teal); font-size: 0.8rem; }
+
+        .card-divider {
+            height: 1px;
+            background: #f1f5f9;
+            margin: 1.2rem 0;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text-soft);
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+
+        .coordenacao-card:hover .tag {
+            background: #e8f4fd;
+            color: #2c5282;
+        }
+
+        /* ─── INFO BOX ─── */
+        .info-box {
+            margin-top: 2.5rem;
+            padding: 1.8rem 2rem;
+            background: linear-gradient(135deg, #edf8ff, #e6fff9);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--teal);
+            animation: fadeUp 0.6s ease 0.4s both;
+        }
+
+        .info-box h4 {
+            color: var(--navy-mid);
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box h4 i { color: var(--teal); }
+
+        .info-box ul { list-style: none; color: var(--text-soft); }
+
+        .info-box li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; }
+            .visao-geral-card { flex-direction: column; text-align: center; gap: 1.2rem; }
+            .vg-arrow { display: none; }
+            .coordenacoes-grid { grid-template-columns: 1fr; }
+            .stats-overview { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-overview { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-<!-- HEADER -->
-<header class="hdr">
-    <div class="hdr-stripe"></div>
-    <div class="hdr-inner">
-        <div class="hdr-brand">
-            <div class="hdr-logo"><i class="fas fa-bolt"></i></div>
-            <div class="hdr-name">
-                <h1>Jirau Energia</h1>
-                <p>Gerência de Manutenção</p>
-            </div>
-        </div>
-        <nav class="hdr-nav">
-            <div class="live-pill"><div class="live-dot"></div>Ao Vivo</div>
-            <a href="Gerencia.html" class="hdr-btn"><i class="fas fa-arrow-left"></i>Gerências</a>
-            <a href="index.html" class="hdr-btn"><i class="fas fa-home"></i>Home</a>
-        </nav>
-    </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-energy"></div>
-    <div class="hero-orb orb1"></div>
-    <div class="hero-orb orb2"></div>
-    <div class="hero-orb orb3"></div>
-    <nav class="breadcrumb">
-        <a href="index.html"><i class="fas fa-home" style="font-size:.7rem;"></i></a>
-        <span class="sep">›</span>
-        <a href="Gerencia.html">Gerências</a>
-        <span class="sep">›</span>
-        <span class="now">Manutenção</span>
-    </nav>
-    <div class="hero-inner">
-        <div class="hero-ico"><i class="fas fa-tools"></i></div>
-        <div class="hero-txt">
-            <div class="hero-tag"><i class="fas fa-layer-group"></i>Coordenações</div>
-            <h1 class="hero-h1">Gerência de <em>Manutenção</em></h1>
-            <p class="hero-sub">
-                Acesse os painéis de cada coordenação — indicadores de performance,
+    <!-- ── HEADER ── -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="company-info">
+                    <h1>Jirau Energia</h1>
+                    <p>Gestão de Gerência de Manutenção</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-home"></i>
+                <span>Voltar ao Dashboard</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-tag">
+                <i class="fas fa-layer-group"></i>
+                Gerência de Manutenção
+            </div>
+            <h1 class="page-title">Coordenações de Manutenção</h1>
+            <p class="page-subtitle">
+                Acesse os painéis de cada coordenação — indicadores de performance, 
                 headcount e gestão de equipes em tempo real.
             </p>
         </div>
-    </div>
-</section>
 
-<main class="wrap">
-    <div class="stats">
-        <div class="stat">
-            <div class="stat-ic ic-ac"><i class="fas fa-sitemap"></i></div>
-            <div><div class="stat-val">4</div><div class="stat-lbl">Coordenações</div></div>
+        <!-- ── VISÃO GERAL (destaque) ── -->
+        <div class="visao-geral-wrapper">
+            <div class="visao-geral-label">
+                <i class="fas fa-star"></i>
+                Painel Consolidado
+            </div>
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F501c81c8-8c7a-ab34-c8ab-e63b963f7da6"
+               class="visao-geral-card">
+                <div class="vg-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="vg-body">
+                    <div class="vg-badge">
+                        <i class="fas fa-globe"></i>
+                        Todas as Coordenações
+                    </div>
+                    <div class="vg-title">Panorama Geral da Manutenção</div>
+                    <div class="vg-desc">
+                        Visão consolidada de headcount, indicadores e performance de todas as coordenações em um único painel.
+                    </div>
+                </div>
+                <div class="vg-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
         </div>
-        <div class="stat">
-            <div class="stat-ic ic-violet"><i class="fas fa-users"></i></div>
-            <div><div class="stat-val">5</div><div class="stat-lbl">Usuários Ativos</div></div>
-        </div>
-        <div class="stat">
-            <div class="stat-ic ic-sky"><i class="fas fa-sync-alt"></i></div>
-            <div><div class="stat-val">Live</div><div class="stat-lbl">Atualização</div></div>
-        </div>
-        <div class="stat">
-            <div class="stat-ic ic-amber"><i class="fas fa-desktop"></i></div>
-            <div><div class="stat-val">Multi</div><div class="stat-lbl">Dispositivos</div></div>
-        </div>
-    </div>
 
-    <!-- Painel Consolidado -->
-    <div class="painel-wrap">
-        <div class="sec-hdr"><i class="fas fa-star"></i>Painel Consolidado</div>
-        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F501c81c8-8c7a-ab34-c8ab-e63b963f7da6" 
-           class="painel" target="_blank" rel="noopener">
-            <div class="painel-ic"><i class="fas fa-chart-pie"></i></div>
-            <div class="painel-body">
-                <div class="painel-tag"><i class="fas fa-globe"></i>Todas as Coordenações</div>
-                <div class="painel-title">Panorama Geral da Manutenção</div>
-                <div class="painel-desc">
-                    Visão consolidada de headcount, indicadores e performance de todas as coordenações em um único painel.
+        <!-- Stats -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon primary">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Usuários Ativos</div>
                 </div>
             </div>
-            <div class="painel-arr"><i class="fas fa-arrow-right"></i></div>
-        </a>
-    </div>
+            <div class="stat-card">
+                <div class="stat-icon success">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <div>
+                    <div class="stat-value">Live</div>
+                    <div class="stat-label">Atualização de Dados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon warning">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div>
+                    <div class="stat-value">Multi</div>
+                    <div class="stat-label">Acesso Responsivo</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon info">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Coordenações</div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Coordenações Individuais -->
-    <div class="grid-section">
-        <div class="sec-hdr"><i class="fas fa-th-large"></i>Coordenações Individuais</div>
-        <div class="cards-grid">
+        <!-- Section label -->
+        <div class="section-label">
+            <i class="fas fa-th-large"></i>
+            Coordenações Individuais
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="coordenacoes-grid">
 
             <!-- Mecânica -->
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511" 
-               class="ccard" target="_blank" rel="noopener" style="--cc:#f56565;">
-                <div class="ccard-top">
-                    <div class="ccard-ico" style="background:linear-gradient(135deg,#f56565,#e53e3e);box-shadow:0 6px 20px rgba(245,101,101,.3);">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511"
+               class="coordenacao-card card-mecanica">
+                <div class="card-header">
+                    <div class="card-icon icon-mecanica">
                         <i class="fas fa-cog"></i>
                     </div>
-                    <div class="ccard-info">
+                    <div class="card-info">
                         <h3>Manutenção Mecânica</h3>
-                        <div class="ccard-coord"><i class="fas fa-user-tie"></i><span>Coordenador: Erik Duran</span></div>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Erik Duran</span>
+                        </div>
                     </div>
                 </div>
-                <div class="ccard-sep"></div>
-                <div class="ccard-tags">
-                    <span class="ctag">Turbinas</span>
-                    <span class="ctag">Equipamentos</span>
-                    <span class="ctag">Preventiva</span>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Turbinas</span>
+                    <span class="tag">Equipamentos</span>
+                    <span class="tag">Manutenção Preventiva</span>
                 </div>
-                <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
 
             <!-- Elétrica -->
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60" 
-               class="ccard" target="_blank" rel="noopener" style="--cc:#ed8936;">
-                <div class="ccard-top">
-                    <div class="ccard-ico" style="background:linear-gradient(135deg,#ed8936,#dd6b20);box-shadow:0 6px 20px rgba(237,137,54,.3);">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60"
+               class="coordenacao-card card-eletrica">
+                <div class="card-header">
+                    <div class="card-icon icon-eletrica">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <div class="ccard-info">
+                    <div class="card-info">
                         <h3>Manutenção Elétrica</h3>
-                        <div class="ccard-coord"><i class="fas fa-user-tie"></i><span>Coordenador: Rogério Lucena</span></div>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Rogério Lucena</span>
+                        </div>
                     </div>
                 </div>
-                <div class="ccard-sep"></div>
-                <div class="ccard-tags">
-                    <span class="ctag">Energia</span>
-                    <span class="ctag">Subestações</span>
-                    <span class="ctag">Transformadores</span>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Energia</span>
+                    <span class="tag">Subestações</span>
+                    <span class="tag">Transformadores</span>
                 </div>
-                <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
 
-            <!-- Civil e Segurança -->
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca" 
-               class="ccard" target="_blank" rel="noopener" style="--cc:#4299e1;">
-                <div class="ccard-top">
-                    <div class="ccard-ico" style="background:linear-gradient(135deg,#4299e1,#3182ce);box-shadow:0 6px 20px rgba(66,153,225,.3);">
+            <!-- Civil -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca"
+               class="coordenacao-card card-civil">
+                <div class="card-header">
+                    <div class="card-icon icon-civil">
                         <i class="fas fa-hard-hat"></i>
                     </div>
-                    <div class="ccard-info">
+                    <div class="card-info">
                         <h3>Civil e Segurança de Barragem</h3>
-                        <div class="ccard-coord"><i class="fas fa-user-tie"></i><span>Coordenadora: Jakelline Silva</span></div>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenadora: Jakelline Silva</span>
+                        </div>
                     </div>
                 </div>
-                <div class="ccard-sep"></div>
-                <div class="ccard-tags">
-                    <span class="ctag">Estruturas</span>
-                    <span class="ctag">Barragem</span>
-                    <span class="ctag">Infraestrutura</span>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">Estruturas</span>
+                    <span class="tag">Barragem</span>
+                    <span class="tag">Infraestrutura</span>
                 </div>
-                <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
 
-            <!-- Sistema Elétrica -->
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c" 
-               class="ccard" target="_blank" rel="noopener" style="--cc:#9f7aea;">
-                <div class="ccard-top">
-                    <div class="ccard-ico" style="background:linear-gradient(135deg,#9f7aea,#805ad5);box-shadow:0 6px 20px rgba(159,122,234,.3);">
+            <!-- Sistema Elétrico -->
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c"
+               class="coordenacao-card card-sistema">
+                <div class="card-header">
+                    <div class="card-icon icon-planejamento">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <div class="ccard-info">
+                    <div class="card-info">
                         <h3>Manutenção Sistema Elétrica</h3>
-                        <div class="ccard-coord"><i class="fas fa-user-tie"></i><span>Coordenador: Rômulo Ferreira</span></div>
+                        <div class="coordenador">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coordenador: Rômulo Ferreira</span>
+                        </div>
                     </div>
                 </div>
-                <div class="ccard-sep"></div>
-                <div class="ccard-tags">
-                    <span class="ctag">PCM</span>
-                    <span class="ctag">Cronogramas</span>
-                    <span class="ctag">Estratégia</span>
+                <div class="card-divider"></div>
+                <div class="card-tags">
+                    <span class="tag">PCM</span>
+                    <span class="tag">Cronogramas</span>
+                    <span class="tag">Estratégia</span>
                 </div>
-                <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
             </a>
-        </div>
-    </div>
 
-    <div class="info-box">
-        <h4><i class="fas fa-info-circle"></i>Informações Disponíveis nos Painéis</h4>
-        <ul>
-            <li>Headcount estratificado por tipo de vínculo (próprios e terceiros)</li>
-            <li>Indicadores de performance e disponibilidade operacional</li>
-            <li>Gestão de equipes e distribuição de usuários por coordenação</li>
-            <li>Histórico e estatísticas detalhadas de cada área</li>
-        </ul>
-    </div>
-</main>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <h4><i class="fas fa-info-circle"></i> Informações Disponíveis</h4>
+            <ul>
+                <li>Headcount estratificado por tipo de vínculo (próprios e terceiros)</li>
+                <li>Indicadores de performance e disponibilidade operacional</li>
+                <li>Gestão de equipes e distribuição de colaboradores</li>
+                <li>Histórico e estatísticas detalhadas de cada área</li>
+            </ul>
+        </div>
+
+    </main>
 </body>
 </html>
