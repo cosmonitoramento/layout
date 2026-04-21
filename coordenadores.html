@@ -20,8 +20,10 @@
             --card: #ffffff;
             --txt: #1a2535;
             --muted: #64748b;
-            --border: #e2eaf5;
-            --r-xl: 22px; --r-lg: 16px; --r-md: 10px;
+            --border:#e2eaf5;
+            --r-xl: 22px;
+            --r-lg: 16px;
+            --r-md: 10px;
             --sh-xs: 0 2px 12px rgba(0,0,0,.07);
             --sh-sm: 0 4px 22px rgba(0,0,0,.1);
             --sh-md: 0 10px 38px rgba(0,0,0,.14);
@@ -29,7 +31,7 @@
         }
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Sora',sans-serif; background:var(--page); color:var(--txt); min-height:100vh; overflow-x:hidden; }
-        
+
         /* HEADER */
         .hdr { position:sticky; top:0; z-index:300; background:var(--navy); box-shadow:0 2px 28px rgba(0,0,0,.4); }
         .hdr-stripe { height:3px; background:linear-gradient(90deg,transparent,var(--ac),var(--gold),var(--ac),transparent); }
@@ -42,31 +44,14 @@
         .live-pill { display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.4); border-radius:999px; padding:6px 14px; font-size:.75rem; font-weight:700; color:#10b981; }
         .live-dot { width:7px; height:7px; border-radius:50%; background:#10b981; animation:blink 1.4s ease-in-out infinite; }
         @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)} }
-        .hdr-btn { 
-            display:inline-flex; align-items:center; gap:7px; padding:7px 16px; 
-            border-radius:999px; font-size:.8rem; font-weight:700; text-decoration:none; 
-            color:rgba(255,255,255,.85); background:rgba(255,255,255,.07); 
-            border:1px solid rgba(255,255,255,.14); transition:all .22s; 
-            cursor:pointer; white-space:nowrap;
-        }
+        .hdr-btn { display:inline-flex; align-items:center; gap:7px; padding:7px 16px; border-radius:999px; font-size:.8rem; font-weight:700; text-decoration:none; color:rgba(255,255,255,.85); background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); transition:all .22s; white-space:nowrap; cursor:pointer; }
         .hdr-btn i { color:var(--ac); }
         .hdr-btn:hover { background:rgba(0,201,177,.18); border-color:rgba(0,201,177,.45); color:#fff; }
 
         /* HERO */
         .hero { position:relative; background:var(--navy); overflow:hidden; padding:0; }
-        .hero-bg {
-            position:absolute; inset:0;
-            background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0,201,177,.18) 0%, transparent 60%),
-                        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(246,197,73,.1) 0%, transparent 55%),
-                        radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0,120,100,.15) 0%, transparent 55%),
-                        linear-gradient(160deg, #070f22 0%, #0d1f3e 40%, #0a2a3a 100%);
-        }
-        .hero-grid {
-            position:absolute; inset:0;
-            background-image: linear-gradient(rgba(0,201,177,.06) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(0,201,177,.06) 1px, transparent 1px);
-            background-size:52px 52px; pointer-events:none;
-        }
+        .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0,201,177,.18) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 10% 80%, rgba(246,197,73,.1) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 90% 90%, rgba(0,120,100,.15) 0%, transparent 55%), linear-gradient(160deg, #070f22 0%, #0d1f3e 40%, #0a2a3a 100%); }
+        .hero-grid { position:absolute; inset:0; background-image: linear-gradient(rgba(0,201,177,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,201,177,.06) 1px, transparent 1px); background-size:52px 52px; pointer-events:none; }
         .hero-orb { position:absolute; border-radius:50%; pointer-events:none; animation:orbFloat ease-in-out infinite; }
         .orb1 { width:380px; height:380px; top:-120px; right:-80px; background:radial-gradient(circle,rgba(0,201,177,.2) 0%,transparent 65%); animation-duration:8s; }
         .orb2 { width:260px; height:260px; bottom:-60px; left:-60px; background:radial-gradient(circle,rgba(246,197,73,.12) 0%,transparent 65%); animation-duration:11s; animation-delay:-3s; }
@@ -83,7 +68,7 @@
         .breadcrumb .now { color:var(--ac); font-weight:700; }
 
         .hero-inner { max-width:1440px; margin:0 auto; padding:2rem 2rem 7rem; position:relative; z-index:3; display:flex; align-items:center; gap:2.2rem; flex-wrap:wrap; }
-        .hero-ico { width:96px; height:96px; border-radius:26px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:2.6rem; color:#fff; box-shadow:0 0 0 8px rgba(0,201,177,.12),0 14px 44px var(--ac-glow); flex-shrink:0; animation:floatIco 4s ease-in-out infinite; }
+        .hero-ico { width:96px; height:96px; border-radius:26px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:2.6rem; color:#fff; box-shadow:0 0 0 8px rgba(0,201,177,.12), 0 14px 44px var(--ac-glow); flex-shrink:0; animation:floatIco 4s ease-in-out infinite; }
         @keyframes floatIco { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
         .hero-txt { flex:1; min-width:260px; }
         .hero-tag { display:inline-flex; align-items:center; gap:.45rem; background:rgba(0,201,177,.13); border:1px solid rgba(0,201,177,.35); color:var(--ac); font-size:.7rem; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; padding:4px 13px; border-radius:999px; margin-bottom:.9rem; }
@@ -118,31 +103,28 @@
             display:flex; align-items:center; gap:2rem;
             background:linear-gradient(145deg,var(--navy) 0%,var(--navy2) 50%,var(--navy3) 100%);
             border-radius:var(--r-xl); padding:2rem 2.4rem;
-            color:#fff; border:1px solid rgba(0,201,177,.22);
+            text-decoration:none; color:#fff;
+            border:1px solid rgba(0,201,177,.22);
             box-shadow:var(--sh-lg), inset 0 1px 0 rgba(255,255,255,.04);
             position:relative; overflow:hidden; transition:all .32s;
-            cursor:pointer;
+            cursor: pointer;
         }
         .painel:hover { transform:translateY(-5px); box-shadow:0 28px 68px rgba(0,0,0,.28), 0 0 0 1.5px rgba(0,201,177,.4); }
-        .painel-ic { width:74px; height:74px; border-radius:20px; background:linear-gradient(135deg,var(--ac),var(--ac-dark)); display:flex; align-items:center; justify-content:center; font-size:2rem; color:#fff; flex-shrink:0; box-shadow:0 8px 28px var(--ac-glow); }
-        .painel-body { flex:1; min-width:0; }
-        .painel-tag { display:inline-flex; align-items:center; gap:.4rem; background:rgba(0,201,177,.16); border:1px solid rgba(0,201,177,.35); color:var(--ac); font-size:.67rem; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin-bottom:.5rem; }
-        .painel-title { font-size:1.45rem; font-weight:800; color:#fff; letter-spacing:-.3px; margin-bottom:.3rem; }
-        .painel-desc { font-size:.86rem; color:rgba(255,255,255,.5); line-height:1.55; }
-        .painel-arr { width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.4); flex-shrink:0; transition:all .25s; }
-        .painel:hover .painel-arr { background:var(--ac); border-color:var(--ac); color:#fff; }
 
-        /* CARDS GRID */
+        /* CARDS */
         .grid-section { animation:up .5s ease .15s both; margin-bottom:2.5rem; }
         .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.3rem; }
         .ccard {
             background:var(--card); border:1.5px solid var(--border);
             border-radius:var(--r-xl); padding:1.8rem;
-            position:relative; overflow:hidden;
+            text-decoration:none; color:inherit;
+            display:block; position:relative; overflow:hidden;
             box-shadow:var(--sh-xs); transition:all .28s ease;
-            cursor:pointer;
+            cursor: pointer;
         }
         .ccard:hover { transform:translateY(-8px); box-shadow:var(--sh-md), 0 0 0 1.5px var(--cc,var(--ac)); border-color:var(--cc,var(--ac)); }
+
+        /* resto do CSS dos cards permanece igual ao que você tinha */
         .ccard::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--cc,var(--ac)); border-radius:var(--r-xl) var(--r-xl) 0 0; transform:scaleX(0); transform-origin:left; transition:transform .32s cubic-bezier(.4,0,.2,1); }
         .ccard:hover::before { transform:scaleX(1); }
         .ccard-top { display:flex; align-items:flex-start; gap:1.1rem; margin-bottom:1.3rem; }
@@ -169,18 +151,15 @@
 
         @media (max-width:768px) {
             .hero-inner { padding:2rem 1.2rem 6.5rem; }
-            .hero-ico { width:72px; height:72px; font-size:2rem; }
             .painel { flex-direction:column; text-align:center; gap:1.2rem; }
             .painel-arr { display:none; }
             .cards-grid { grid-template-columns:1fr; }
             .stats { grid-template-columns:repeat(2,1fr); }
-            .hdr-inner { padding:.9rem 1.2rem; }
-            .wrap { padding:0 1.2rem 4rem; }
         }
     </style>
 </head>
 <body>
-
+<!-- HEADER -->
 <header class="hdr">
     <div class="hdr-stripe"></div>
     <div class="hdr-inner">
@@ -193,12 +172,13 @@
         </div>
         <nav class="hdr-nav">
             <div class="live-pill"><div class="live-dot"></div>Ao Vivo</div>
-            <button class="hdr-btn" onclick="window.location.href='Gerencia.html'"><i class="fas fa-arrow-left"></i>Gerências</button>
-            <button class="hdr-btn" onclick="window.location.href='index.html'"><i class="fas fa-home"></i>Home</button>
+            <a href="Gerencia.html" class="hdr-btn"><i class="fas fa-arrow-left"></i>Gerências</a>
+            <a href="index.html" class="hdr-btn"><i class="fas fa-home"></i>Home</a>
         </nav>
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -207,9 +187,9 @@
     <div class="hero-orb orb2"></div>
     <div class="hero-orb orb3"></div>
     <nav class="breadcrumb">
-        <a onclick="window.location.href='index.html'"><i class="fas fa-home" style="font-size:.7rem;"></i></a>
+        <a href="index.html"><i class="fas fa-home" style="font-size:.7rem;"></i></a>
         <span class="sep">›</span>
-        <a onclick="window.location.href='Gerencia.html'">Gerências</a>
+        <a href="Gerencia.html">Gerências</a>
         <span class="sep">›</span>
         <span class="now">Manutenção</span>
     </nav>
@@ -249,26 +229,28 @@
     <!-- Painel Consolidado -->
     <div class="painel-wrap">
         <div class="sec-hdr"><i class="fas fa-star"></i>Painel Consolidado</div>
-        <div class="painel" onclick="window.open('https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F501c81c8-8c7a-ab34-c8ab-e63b963f7da6', '_blank')">
+        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F501c81c8-8c7a-ab34-c8ab-e63b963f7da6" 
+           class="painel" target="_blank" rel="noopener">
             <div class="painel-ic"><i class="fas fa-chart-pie"></i></div>
             <div class="painel-body">
                 <div class="painel-tag"><i class="fas fa-globe"></i>Todas as Coordenações</div>
                 <div class="painel-title">Panorama Geral da Manutenção</div>
                 <div class="painel-desc">
-                    Visão consolidada de headcount, indicadores e performance
-                    de todas as coordenações em um único painel.
+                    Visão consolidada de headcount, indicadores e performance de todas as coordenações em um único painel.
                 </div>
             </div>
             <div class="painel-arr"><i class="fas fa-arrow-right"></i></div>
-        </div>
+        </a>
     </div>
 
     <!-- Coordenações Individuais -->
     <div class="grid-section">
         <div class="sec-hdr"><i class="fas fa-th-large"></i>Coordenações Individuais</div>
         <div class="cards-grid">
+
             <!-- Mecânica -->
-            <div class="ccard" style="--cc:#f56565;" onclick="window.open('https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511', '_blank')">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fde892133-b8e8-021b-9cb2-5c8d629ee511" 
+               class="ccard" target="_blank" rel="noopener" style="--cc:#f56565;">
                 <div class="ccard-top">
                     <div class="ccard-ico" style="background:linear-gradient(135deg,#f56565,#e53e3e);box-shadow:0 6px 20px rgba(245,101,101,.3);">
                         <i class="fas fa-cog"></i>
@@ -285,10 +267,11 @@
                     <span class="ctag">Preventiva</span>
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
-            </div>
+            </a>
 
             <!-- Elétrica -->
-            <div class="ccard" style="--cc:#ed8936;" onclick="window.open('https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60', '_blank')">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Faf2574e3-bd7a-5da6-6e55-74653aaaab60" 
+               class="ccard" target="_blank" rel="noopener" style="--cc:#ed8936;">
                 <div class="ccard-top">
                     <div class="ccard-ico" style="background:linear-gradient(135deg,#ed8936,#dd6b20);box-shadow:0 6px 20px rgba(237,137,54,.3);">
                         <i class="fas fa-bolt"></i>
@@ -305,10 +288,11 @@
                     <span class="ctag">Transformadores</span>
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
-            </div>
+            </a>
 
             <!-- Civil e Segurança -->
-            <div class="ccard" style="--cc:#4299e1;" onclick="window.open('https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca', '_blank')">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fdf130538-f229-a561-8740-ffc88a7ce2ca" 
+               class="ccard" target="_blank" rel="noopener" style="--cc:#4299e1;">
                 <div class="ccard-top">
                     <div class="ccard-ico" style="background:linear-gradient(135deg,#4299e1,#3182ce);box-shadow:0 6px 20px rgba(66,153,225,.3);">
                         <i class="fas fa-hard-hat"></i>
@@ -325,10 +309,11 @@
                     <span class="ctag">Infraestrutura</span>
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
-            </div>
+            </a>
 
             <!-- Sistema Elétrica -->
-            <div class="ccard" style="--cc:#9f7aea;" onclick="window.open('https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c', '_blank')">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Ffbe23a1e-d2d9-ce87-4647-825da0b8ac8c" 
+               class="ccard" target="_blank" rel="noopener" style="--cc:#9f7aea;">
                 <div class="ccard-top">
                     <div class="ccard-ico" style="background:linear-gradient(135deg,#9f7aea,#805ad5);box-shadow:0 6px 20px rgba(159,122,234,.3);">
                         <i class="fas fa-project-diagram"></i>
@@ -345,7 +330,7 @@
                     <span class="ctag">Estratégia</span>
                 </div>
                 <div class="ccard-foot"><div class="ccard-arr"><i class="fas fa-arrow-right"></i></div></div>
-            </div>
+            </a>
         </div>
     </div>
 
