@@ -91,87 +91,93 @@
         .sec-hdr i { color:var(--ac); font-size:.75rem; }
         .sec-hdr::after { content:''; flex:1; height:1px; background:var(--border); }
 
-        /* ── COLABORADORES GRID ── */
+        /* ── COLABORADORES GRID (ATUALIZADO) ──  */
         .colab-section { animation:up .5s ease .1s both; margin-bottom:2.5rem; }
-        .colab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.3rem; }
-        .colab-card { background:var(--card); border:1.5px solid var(--border); border-radius:var(--r-xl); padding:1.8rem; display:flex; align-items:center; gap:1.3rem; box-shadow:var(--sh-xs); transition:all .28s ease; position:relative; overflow:hidden; text-decoration:none; color:inherit; cursor:pointer; }
-        .colab-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--ac); border-radius:var(--r-xl) 0 0 var(--r-xl); transform:scaleY(0); transform-origin:bottom; transition:transform .32s cubic-bezier(.4,0,.2,1); }
-        .colab-card:hover { transform:translateY(-6px); box-shadow:var(--sh-md), 0 0 0 1.5px var(--ac); border-color:var(--ac); }
-        .colab-card:hover::before { transform:scaleY(1); }
-        .avatar { width:65px; height:65px; border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:800; color:#fff; flex-shrink:0; transition:transform .28s; font-family:'JetBrains Mono',monospace; }
-        .colab-card:hover .avatar { transform:scale(1.1) rotate(-3deg); }
-        .colab-info { flex:1; min-width:0; }
-        .colab-name { font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:.2rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-        .colab-role { display:flex; align-items:center; gap:.4rem; font-size:.8rem; color:var(--muted); font-weight:500; margin-bottom:0.5rem; }
-        .colab-role i { color:var(--ac); font-size:.7rem; }
-        .colab-badge { display:inline-flex; align-items:center; gap:.35rem; padding:4px 12px; border-radius:999px; font-size:.7rem; font-weight:700; background:#10b981; color:#fff; box-shadow:0 4px 10px rgba(16,185,129,0.2); }
+        .colab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.3rem; }
 
-        .btn-adm-UNUSED {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: linear-gradient(135deg, var(--navy2), var(--navy3));
-            border: 2px solid var(--ac);
+        /* TORNA O CARD UM BOTÃO CLICÁVEL */
+        .colab-card {
+            background: var(--card);
+            border: 1.5px solid var(--border);
             border-radius: var(--r-xl);
-            padding: 1.5rem 2.5rem;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.15rem;
-            font-weight: 800;
-            letter-spacing: .5px;
-            box-shadow: var(--sh-sm), 0 0 0 0 var(--ac-glow);
-            transition: all .3s cubic-bezier(.4,0,.2,1);
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            box-shadow: var(--sh-xs);
+            transition: all .28s ease;
             position: relative;
             overflow: hidden;
+            text-decoration: none; /* Remove sublinhado */
+            color: inherit;
+            cursor: pointer;
         }
 
-        .btn-adm::before {
+        .colab-card::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--ac-dim), transparent);
-            opacity: 0;
-            transition: opacity .3s;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--ac);
+            border-radius: var(--r-xl) 0 0 var(--r-xl);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform .32s cubic-bezier(.4,0,.2,1);
         }
 
-        .btn-adm:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sh-lg), 0 0 0 4px var(--ac-glow);
-            border-color: var(--ac);
+        .colab-card:hover { 
+            transform:translateY(-6px); 
+            box-shadow:var(--sh-md), 0 0 0 1.5px var(--ac); 
+            border-color:var(--ac); 
         }
+        .colab-card:hover::before { transform:scaleY(1); }
 
-        .btn-adm:hover::before { opacity: 1; }
-
-        .btn-adm-ico {
-            width: 52px; height: 52px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--ac), var(--ac-dark));
+        .avatar {
+            width: 65px; height: 65px;
+            border-radius: 18px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.4rem;
+            font-weight: 800;
             color: #fff;
             flex-shrink: 0;
-            box-shadow: 0 6px 20px var(--ac-glow);
-            transition: transform .3s;
+            transition: transform .28s;
+            font-family: 'JetBrains Mono', monospace;
         }
+        .colab-card:hover .avatar { transform: scale(1.1) rotate(-3deg); }
 
-        .btn-adm:hover .btn-adm-ico { transform: scale(1.12) rotate(-5deg); }
-
-        .btn-adm-txt { display: flex; flex-direction: column; gap: .2rem; }
-        .btn-adm-label { font-size: .7rem; font-weight: 600; color: var(--ac); letter-spacing: 1.5px; text-transform: uppercase; }
-        .btn-adm-name { font-size: 1.25rem; font-weight: 900; color: #fff; letter-spacing: -.3px; }
-
-        .btn-adm-arrow {
-            margin-left: auto;
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.08);
-            border: 1px solid rgba(255,255,255,.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: .85rem;
-            color: var(--ac);
-            transition: all .3s;
+        .colab-info { flex: 1; min-width: 0; }
+        .colab-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: .2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .btn-adm:hover .btn-adm-arrow { background: var(--ac); color: #fff; transform: translateX(4px); }
+        .colab-role {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .8rem;
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .colab-role i { color: var(--ac); font-size: .7rem; }
+
+        .colab-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: .7rem;
+            font-weight: 700;
+            background: #10b981;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(16,185,129,0.2);
+        }
 
         /* ── INFO BOX ── */
         .info-box { background:linear-gradient(135deg,#fff8ec 0%,#fffdf0 100%); border-radius:var(--r-lg); border-left:4px solid var(--ac); padding:1.7rem 2rem; animation:up .5s ease .2s both; }
@@ -183,9 +189,8 @@
 
         @media (max-width:768px) {
             .hero-inner { padding:2rem 1.2rem 5.5rem; }
+            .colab-grid { grid-template-columns:1fr; }
             .stats { grid-template-columns:repeat(2,1fr); }
-            .btn-adm { padding: 1.2rem 1.6rem; }
-            .btn-adm-name { font-size: 1rem; }
         }
     </style>
 </head>
@@ -262,18 +267,19 @@
         </div>
     </div>
 
-    <div class="colab-section">
-        <div class="sec-hdr"><i class="fas fa-id-badge"></i>Acesso à Gerência</div>
+    
 
-        <div class="colab-grid">
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F96e20dca-bf16-4bea-433b-5b362296cb12" class="colab-card">
-                <div class="avatar" style="background: linear-gradient(135deg,#F4A011,#d4880a);">AS</div>
+                <div class="avatar" style="background: linear-gradient(135deg,#3498db,#2980b9);">IA</div>
                 <div class="colab-info">
                     <div class="colab-name">ADM E SUPRIMENTOS</div>
-                    <div class="colab-role"><i class="fas fa-boxes"></i> Gerência Administrativa e Suprimentos</div>
+                    <div class="colab-role"><i class="fas fa-user-tie"></i> Contratos do departamento Adminstrativo e Suprimentos</div>
                     <div class="colab-badge">Ativo</div>
                 </div>
             </a>
+
+      
+
         </div>
     </div>
 
