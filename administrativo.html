@@ -91,10 +91,22 @@
         .sec-hdr i { color:var(--ac); font-size:.75rem; }
         .sec-hdr::after { content:''; flex:1; height:1px; background:var(--border); }
 
-        /* ── BOTÃO ADM E SUPRIMENTOS ── */
-        .btn-section { animation:up .5s ease .1s both; margin-bottom:2.5rem; }
+        /* ── COLABORADORES GRID ── */
+        .colab-section { animation:up .5s ease .1s both; margin-bottom:2.5rem; }
+        .colab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.3rem; }
+        .colab-card { background:var(--card); border:1.5px solid var(--border); border-radius:var(--r-xl); padding:1.8rem; display:flex; align-items:center; gap:1.3rem; box-shadow:var(--sh-xs); transition:all .28s ease; position:relative; overflow:hidden; text-decoration:none; color:inherit; cursor:pointer; }
+        .colab-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--ac); border-radius:var(--r-xl) 0 0 var(--r-xl); transform:scaleY(0); transform-origin:bottom; transition:transform .32s cubic-bezier(.4,0,.2,1); }
+        .colab-card:hover { transform:translateY(-6px); box-shadow:var(--sh-md), 0 0 0 1.5px var(--ac); border-color:var(--ac); }
+        .colab-card:hover::before { transform:scaleY(1); }
+        .avatar { width:65px; height:65px; border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:800; color:#fff; flex-shrink:0; transition:transform .28s; font-family:'JetBrains Mono',monospace; }
+        .colab-card:hover .avatar { transform:scale(1.1) rotate(-3deg); }
+        .colab-info { flex:1; min-width:0; }
+        .colab-name { font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:.2rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .colab-role { display:flex; align-items:center; gap:.4rem; font-size:.8rem; color:var(--muted); font-weight:500; margin-bottom:0.5rem; }
+        .colab-role i { color:var(--ac); font-size:.7rem; }
+        .colab-badge { display:inline-flex; align-items:center; gap:.35rem; padding:4px 12px; border-radius:999px; font-size:.7rem; font-weight:700; background:#10b981; color:#fff; box-shadow:0 4px 10px rgba(16,185,129,0.2); }
 
-        .btn-adm {
+        .btn-adm-UNUSED {
             display: inline-flex;
             align-items: center;
             gap: 1rem;
@@ -250,17 +262,19 @@
         </div>
     </div>
 
-    <div class="btn-section">
+    <div class="colab-section">
         <div class="sec-hdr"><i class="fas fa-id-badge"></i>Acesso à Gerência</div>
 
-        <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F96e20dca-bf16-4bea-433b-5b362296cb12" class="btn-adm" target="_blank" rel="noopener noreferrer">
-            <div class="btn-adm-ico"><i class="fas fa-boxes"></i></div>
-            <div class="btn-adm-txt">
-                <span class="btn-adm-label">Acessar Painel</span>
-                <span class="btn-adm-name">ADM E SUPRIMENTOS</span>
-            </div>
-            <div class="btn-adm-arrow"><i class="fas fa-arrow-right"></i></div>
-        </a>
+        <div class="colab-grid">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F96e20dca-bf16-4bea-433b-5b362296cb12" class="colab-card">
+                <div class="avatar" style="background: linear-gradient(135deg,#F4A011,#d4880a);">AS</div>
+                <div class="colab-info">
+                    <div class="colab-name">ADM E SUPRIMENTOS</div>
+                    <div class="colab-role"><i class="fas fa-boxes"></i> Gerência Administrativa e Suprimentos</div>
+                    <div class="colab-badge">Ativo</div>
+                </div>
+            </a>
+        </div>
     </div>
 
     <div class="info-box">
