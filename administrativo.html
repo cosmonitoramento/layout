@@ -91,11 +91,10 @@
         .sec-hdr i { color:var(--ac); font-size:.75rem; }
         .sec-hdr::after { content:''; flex:1; height:1px; background:var(--border); }
 
-        /* ── COLABORADORES GRID (ATUALIZADO) ──  */
+        /* ── COLABORADORES GRID ──  */
         .colab-section { animation:up .5s ease .1s both; margin-bottom:2.5rem; }
         .colab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.3rem; }
 
-        /* TORNA O CARD UM BOTÃO CLICÁVEL */
         .colab-card {
             background: var(--card);
             border: 1.5px solid var(--border);
@@ -108,7 +107,7 @@
             transition: all .28s ease;
             position: relative;
             overflow: hidden;
-            text-decoration: none; /* Remove sublinhado */
+            text-decoration: none;
             color: inherit;
             cursor: pointer;
         }
@@ -267,18 +266,19 @@
         </div>
     </div>
 
-    
+    <div class="colab-section">
+        <div class="sec-hdr"><i class="fas fa-id-badge"></i>Usuários da Gerência</div>
+
+        <div class="colab-grid">
 
             <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F96e20dca-bf16-4bea-433b-5b362296cb12" class="colab-card">
-                <div class="avatar" style="background: linear-gradient(135deg,#3498db,#2980b9);">IA</div>
+                <div class="avatar" style="background: linear-gradient(135deg,#3498db,#2980b9);">AS</div>
                 <div class="colab-info">
                     <div class="colab-name">ADM E SUPRIMENTOS</div>
-                    <div class="colab-role"><i class="fas fa-user-tie"></i> Contratos do departamento Adminstrativo e Suprimentos</div>
+                    <div class="colab-role"><i class="fas fa-user-tie"></i> Gerência Administrativa e Suprimentos</div>
                     <div class="colab-badge">Ativo</div>
                 </div>
             </a>
-
-      
 
         </div>
     </div>
