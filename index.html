@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,21 +8,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
         :root {
-            --primary: #0F2942;       
-            --primary-light: #1A3E60; 
-            --accent: #E59A18;        
-            --bg-light: #F4F7FA;      
-            --text-main: #1E293B;     
-            --text-muted: #64748B;    
-            --border-color: #E2E8F0;  
-            --card-bg: #FFFFFF;       
+            --primary: #0F2942;
+            --primary-light: #1A3E60;
+            --accent: #E59A18;
+            --bg-light: #F4F7FA;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --card-bg: #FFFFFF;
         }
 
         body {
@@ -172,6 +173,7 @@
             justify-content: space-between;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            cursor: pointer;
         }
 
         .module-card:hover {
@@ -240,6 +242,29 @@
             transform: translateX(0);
         }
 
+        /* Card sem link definido: aparece, mas não navega */
+        .module-card.disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+
+        .module-card.disabled:hover {
+            transform: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            border-color: var(--border-color);
+        }
+
+        .module-card.disabled:hover .module-icon {
+            background-color: #F1F5F9;
+            color: var(--primary);
+        }
+
+        .module-card.disabled .module-footer {
+            opacity: 1;
+            transform: none;
+            color: var(--text-muted);
+        }
+
         .footer {
             background-color: #ffffff;
             border-top: 1px solid var(--border-color);
@@ -287,7 +312,7 @@
 
         <div class="modules-grid">
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F1f72f50c-59e6-5f10-fd05-f809439b7ea0" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-utensils"></i></div>
                     <div class="module-info">
@@ -298,19 +323,18 @@
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fa9d2b053-c9d6-2f7e-7f89-181ca911bc35" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-door-open"></i></div>
                     <div class="module-info">
-                        <h3>
-Acessos no Restaurante</h3>
+                        <h3>Acessos no Restaurante</h3>
                         <p>Monitoramento de acessos em tempo real ao refeitório central.</p>
                     </div>
                 </div>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F93d7ce36-7222-ee5f-96ac-31203efdab6b" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-boxes-stacked"></i></div>
                     <div class="module-info">
@@ -321,7 +345,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F16dc2824-1e78-39cb-ec5b-e130c4e57ae0" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-concierge-bell"></i></div>
                     <div class="module-info">
@@ -332,7 +356,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F3c378f92-4fc8-7e5b-f35a-42439b46a288" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-location-dot"></i></div>
                     <div class="module-info">
@@ -343,7 +367,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F79be68ae-a27b-c470-f6fe-1d8fa9447dbf" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-shield-halved"></i></div>
                     <div class="module-info">
@@ -354,7 +378,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fcb65a69b-a3a4-885c-3c93-5c7bfd7845c6" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-id-card"></i></div>
                     <div class="module-info">
@@ -365,7 +389,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fd4eef991-4b0e-2207-ed75-1814aa92ccb2" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-user-shield"></i></div>
                     <div class="module-info">
@@ -376,7 +400,7 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2Fc9b3c09c-6566-b0c3-f28b-e84dbe26b4a8" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-car-side"></i></div>
                     <div class="module-info">
@@ -387,7 +411,8 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="#" class="module-card">
+            <!-- Sem link definido ainda: troque o href pelo link da Senior e remova a classe "disabled" -->
+            <a href="#" class="module-card disabled" aria-disabled="true">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-user-plus"></i></div>
                     <div class="module-info">
@@ -395,10 +420,10 @@ Acessos no Restaurante</h3>
                         <p>Pré-cadastro externo e controle de autorizações temporárias.</p>
                     </div>
                 </div>
-                <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
+                <div class="module-footer">Em breve</div>
             </a>
 
-            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F8f05f2a5-777d-5951-5ea5-7f05ebbfd966" class="module-card" target="_blank">
+            <a href="https://platform.senior.com.br/tecnologia/platform/cms/#/page/viewer;id=page%3A%2F%2Fjirauenergia.com.br%2F8f05f2a5-777d-5951-5ea5-7f05ebbfd966" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="module-info">
@@ -409,7 +434,8 @@ Acessos no Restaurante</h3>
                 <div class="module-footer">Acessar Sistema <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></div>
             </a>
 
-            <a href="Gerencia.html" class="module-card">
+            <!-- Troque "Gerencia.html" pelo link completo da página na Senior -->
+            <a href="Gerencia.html" class="module-card" target="_top">
                 <div class="module-header">
                     <div class="module-icon"><i class="fas fa-users-gear"></i></div>
                     <div class="module-info">
@@ -434,6 +460,26 @@ Acessos no Restaurante</h3>
         }
         updateTime();
         setInterval(updateTime, 1000);
+
+        // Clique normal: abre o sistema na própria janela da Senior (a janela de cima, fora da moldura).
+        // Ctrl/Shift/clique do meio continuam abrindo em nova aba, como o navegador faz normalmente.
+        document.querySelectorAll('a.module-card').forEach(function (card) {
+            card.addEventListener('click', function (e) {
+                if (card.classList.contains('disabled') || card.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    return;
+                }
+                if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
+                e.preventDefault();
+                var url = card.href;
+                try {
+                    window.top.location.href = url;
+                } catch (err) {
+                    window.location.href = url;
+                }
+            });
+        });
     </script>
 </body>
 </html>
